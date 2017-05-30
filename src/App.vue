@@ -27,6 +27,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'index';
+
 #app, #app-container {
   position: absolute;
   top: 0;
@@ -47,7 +49,7 @@ export default {
 }
 
 #app-container {
-  background-color: rgba(239, 239, 239, 0.8);
+  background-color: rgba(251, 241, 222, 0.8);
 }
 
 #j-header, #j-footer {
@@ -56,9 +58,5 @@ export default {
   justify-content: center;
   width: 100%;
   background-color: rgba(0, 199, 255, 0.4);
-}
-
-.j-primary-view {
-  padding-bottom: 55px;
 }
 </style>

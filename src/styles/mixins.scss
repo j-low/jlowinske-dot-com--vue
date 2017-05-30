@@ -1,0 +1,6 @@
+@mixin j-transition($prop) {
+  -webkit-transition: $prop 200ms ease-out 1s;
+  -moz-transition: $prop 200ms ease-out 1s;
+  -o-transition: $prop 200ms ease-out 1s;
+  transition: $prop 200ms ease-out 1s;
+}
