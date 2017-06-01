@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import _ from 'lodash'
-import { TweenMax, Power2, TimelineLite } from 'gsap'
-import Draggable from 'gsap/Draggable'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
+// import _ from 'lodash'
+import { TweenMax, Power2, TimelineLite } from 'gsap';
+import Draggable from 'gsap/Draggable';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-import jHeader from './components/layout/jHeader'
-import jFooter from './components/layout/jFooter'
+import jHeader from './components/layout/jHeader';
+import jFooter from './components/layout/jFooter';
 
 export default {
   name: 'jlowinske-dot-com--vue',
@@ -23,11 +23,12 @@ export default {
     jHeader: jHeader,
     jFooter: jFooter
   }
-}
+};
 </script>
 
 <style lang="scss">
 @import '~scss/classes';
+@import '~scss/colors';
 @import '~scss/mixins';
 
 #app, #app-container {
@@ -43,14 +44,14 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
 #app-container {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #j-header, #j-footer {
+  color: $white;
   @extend .flex-center-hv;
   width: 100%;
 }

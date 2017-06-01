@@ -1,7 +1,7 @@
-const enter = {}
-const leave = {}
+const enter = {};
+const leave = {};
 
 export default {
   enter: enter,
   leave: leave
-}
+};
