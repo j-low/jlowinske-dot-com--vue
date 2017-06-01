@@ -20,10 +20,11 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.scss'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'scss': path.join(__dirname, '../src/styles/')
     }
   },
   module: {
@@ -52,8 +53,16 @@ module.exports = {
         options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
-      }
+        },
+      },
+      {
+        test: /\.scss$/,
+        loader: 'sass-resources-loader',
+        options: {
+          resources: ['./../src/index.scss'],
+          sourceMap: true
+        },
+      },
     ]
   }
 }

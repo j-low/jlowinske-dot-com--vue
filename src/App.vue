@@ -27,7 +27,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'index';
+@import '~scss/classes';
+@import '~scss/mixins';
 
 #app, #app-container {
   position: absolute;
@@ -38,25 +39,19 @@ export default {
 }
 
 #app {
-  background-image: url('./assets/pettibon.jpg');
-  background-size: cover;
-
+  @include center-cover('./assets/dark_3.jpg');
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
 #app-container {
-  background-color: rgba(251, 241, 222, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 #j-header, #j-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend .flex-center-hv;
   width: 100%;
-  background-color: rgba(0, 199, 255, 0.4);
 }
 </style>
