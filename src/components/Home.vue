@@ -65,10 +65,6 @@ function mounted() {
   margin-left: auto;
   background: #fffea6;
 
-  // border-top: 2px solid #e9e9e9;
-  // border-bottom: 2px solid #e9e9e9;
-  // border-left: 2px solid #e9e9e9;
-
   z-index: 2;
 }
 
@@ -108,18 +104,18 @@ function mounted() {
     transform: skewY(-15deg);
 
     &.a {
-      background: rgba(28, 255, 113, 0.25);
-      box-shadow: rgba(28, 255, 113, 0.25) 0px 0px 6px;
+      background: #c6ffdb;
+      box-shadow: #c6ffdb 0px 0px 6px;
     }
 
     &.b {
-      background: rgba(85, 213, 255, 0.25);
-      box-shadow: rgba(85, 213, 255, 0.25) 0px 0px 6px;
+      background: #d4f4ff;
+      box-shadow: #d4f4ff 0px 0px 6px;
     }
 
     &.c {
-      background: rgba(255, 167, 223, 0.25);
-      box-shadow: rgba(255, 167, 223, 0.25) 0px 0px 6px;
+      background: #ffe9f7;
+      box-shadow: #ffe9f7 0px 0px 6px;
     }
   }
 
