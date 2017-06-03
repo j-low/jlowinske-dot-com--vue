@@ -40,14 +40,14 @@ export default {
 }
 
 #app {
-  @include center-cover('./assets/dark_3.jpg');
+  // @include center-cover('./assets/dark_1.jpg');
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #app-container {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #j-header, #j-footer {

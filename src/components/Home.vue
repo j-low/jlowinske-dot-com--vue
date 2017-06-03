@@ -1,15 +1,32 @@
 <template>
   <section id="home" class="j-primary-view">
-    <!-- <transition v-on:enter="" v-on:leave="" appear></transition> -->
-    <div id="center"></div>
+    <div class="hemisphere hemisphere-top">
+      <div class="content-label-container"></div>
+      <span class="content-label">grüss dich</span>
+
+    </div>
+    <div class="hemisphere hemisphere-bottom"></div>
+    <div class="main-content">
+      <div class="nav-container">
+        <div class="test-container">
+          <div class="test front">blog</div>
+          <div class="test back a"></div>
+        </div>
+        <div class="test-container">
+          <div class="test front">d3.js</div>
+          <div class="test back b"></div>
+        </div>
+        <div class="test-container">
+          <div class="test front">about</div>
+          <div class="test back c"></div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-import trans from '../gsap-scripts/homeTransitions';
-
 var methods = {};
-_.assign(methods, trans);
 
 export default {
   name: 'home',
@@ -20,26 +37,9 @@ export default {
 function mounted() {
   const home = $('home');
   const center = $('#center');
-  var tl = new TimelineLite({ repeat: -1 });
-
-  addNavSpheres(['nav-blog', 'nav-d3', 'nav-about'], center);
-  TweenLite.from(home, 1, {autoAlpha:0});
-
-  tl.to(center, 20, { });
 }
 
 
-function addNavSpheres(classNames, ctr) {
-  const space = 120;
-  for (var i = 0; i < classNames.length; i++) {
-    let newArm = $('<div>', { class:'arm' }).appendTo(ctr);
-    let newPivot= $('<div>', { class: 'pivot outer' }).appendTo(newArm);
-    let newSphere= $('<div>', { class: 'sphere ' + classNames[i] }).appendTo(newPivot);
-    TweenMax.set(newArm, { rotation: (i * space) - 90, transformOrigin: '0px 3px' });
-    TweenMax.set(newPivot, {  rotation: 90, });
-    // TweenMax.set(newSphere, { rotation:  (-i * space) });
-  }
-}
 
 </script>
 
@@ -53,54 +53,115 @@ function addNavSpheres(classNames, ctr) {
   @extend .flex-center-hv;
   height: calc(100% - 130px);
   color: $white;
-
-  #center {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: rgba(251, 241, 222, 0.4);
-  }
-
-  .arm {
-    width:200px;
-    height:6px;
-    position:absolute;
-    left: 50%;
-    top: calc(50% + 6px);
-    background-color: rgba(255, 182, 43, 0.8);
-  }
-
-  .pivot {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-  }
-
-  .outer {
-    top: -200px;
-    border-radius: 50%;
-    background-color: rgba(62, 255, 49, 0.5);
-  }
-
-  .sphere {
-    position: absolute;
-    height: 400px;
-    width: 400px;
-    border-radius: 50%;
-  }
-
-  .nav-blog {
-    background-color: rgba(251, 241, 222, 0.4);
-  }
-
-  .nav-d3 {
-    background-color: rgba(251, 241, 222, 0.4);
-  }
-
-  .nav-about {
-    background-color: rgba(251, 241, 222, 0.4);
-  }
 }
 
+.main-content {
+  @extend .flex-center-hv;
+  flex-direction: row;
+  height: 50%;
+  min-height: 400px;
+  width: 80%;
+  min-width: 590px;
+  margin-left: auto;
+  background: #fffea6;
 
+  // border-top: 2px solid #e9e9e9;
+  // border-bottom: 2px solid #e9e9e9;
+  // border-left: 2px solid #e9e9e9;
+
+  z-index: 2;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: top;
+  flex-direction: row;
+  margin-top: -50px;
+}
+
+.test-container {
+  display: inline-block;
+  width: 150px;
+  margin: 0 30px;
+}
+
+.test {
+
+  &.front {
+    @extend .flex-center-hv;
+    color: #777777;
+    font-weight: bold;
+    height: 75px;
+    width: 150px;
+    position: absolute;
+    background: #ffffff;
+    border: 3px dashed #333333;
+    transform: skewY(15deg);
+    z-index: 1;
+  }
+
+  &.back {
+    height: 70px;
+    width: 130px;
+    margin-left: 12.5px;
+    position: absolute;
+    transform: skewY(-15deg);
+
+    &.a {
+      background: rgba(28, 255, 113, 0.25);
+      box-shadow: rgba(28, 255, 113, 0.25) 0px 0px 6px;
+    }
+
+    &.b {
+      background: rgba(85, 213, 255, 0.25);
+      box-shadow: rgba(85, 213, 255, 0.25) 0px 0px 6px;
+    }
+
+    &.c {
+      background: rgba(255, 167, 223, 0.25);
+      box-shadow: rgba(255, 167, 223, 0.25) 0px 0px 6px;
+    }
+  }
+
+}
+
+.hemisphere {
+  position: absolute;
+  left: 10%;
+  height: 200px;
+  width: 400px;
+  background: #bae8ff
+}
+
+.hemisphere-top {
+  @extend .flex-center-hv;
+  top: 10%;
+  border-top-left-radius: 400px;
+  border-top-right-radius: 400px;
+  z-index: 3;
+}
+
+.hemisphere-bottom {
+  top: calc(10% + 200px);
+  border-bottom-left-radius: 400px;
+  border-bottom-right-radius: 400px;
+  z-index: 1;
+}
+
+.content-label-container {
+  top: 35%;
+  height: 75px;
+  width: 150px;
+  position: absolute;
+  transform: skewY(-5deg);
+  border: 3px solid #ffffff;
+}
+
+.content-label {
+  top: 49%;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  color: #fff;
+}
 </style>
