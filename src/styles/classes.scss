@@ -3,3 +3,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.hemisphere {
+  position: absolute;
+  left: 10%;
+  height: 200px;
+  width: 400px;
+  background: #bae8ff
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}

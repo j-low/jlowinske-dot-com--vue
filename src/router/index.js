@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/components/Home';
+import Home from '@/components/Home/Home';
 import Blog from '@/components/Blog';
 import D3 from '@/components/D3/D3';
 import About from '@/components/About';

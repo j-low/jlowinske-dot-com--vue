@@ -10,15 +10,15 @@
 
 <script>
 // import _ from 'lodash'
-import { TweenMax, Power2, TimelineLite } from 'gsap';
+import { TweenLite, Power2, TimelineLite } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-import jHeader from './components/layout/jHeader';
-import jFooter from './components/layout/jFooter';
+import jHeader from 'components/layout/jHeader';
+import jFooter from 'components/layout/jFooter';
 
 export default {
-  name: 'jlowinske-dot-com--vue',
+  name: 'app',
   components: {
     jHeader: jHeader,
     jFooter: jFooter
@@ -31,6 +31,11 @@ export default {
 @import '~scss/colors';
 @import '~scss/mixins';
 
+html {
+  @extend .noselect;
+  cursor: default;
+}
+
 #app, #app-container {
   position: absolute;
   top: 0;
@@ -40,7 +45,6 @@ export default {
 }
 
 #app {
-  // @include center-cover('./assets/dark_1.jpg');
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,6 +52,20 @@ export default {
 
 #app-container {
   background-color: rgba(255, 255, 255, 1);
+}
+
+#main-content {
+  position: fixed;
+  top: 25%;
+  right: 0;
+
+  height: 50%;
+  min-height: 400px;
+  width: 80%;
+  min-width: 590px;
+  z-index: 1;
+
+  background: #dcf6ff;
 }
 
 #j-header, #j-footer {
