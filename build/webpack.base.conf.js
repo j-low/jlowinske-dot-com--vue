@@ -24,7 +24,9 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'scss': path.join(__dirname, '../src/styles/')
+      'components': path.join(__dirname, '../src/components'),
+      'scss': path.join(__dirname, '../src/styles'),
+      'anim': path.join(__dirname, '../src/gsap-scripts'),
     }
   },
   module: {

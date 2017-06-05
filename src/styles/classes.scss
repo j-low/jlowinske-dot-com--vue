@@ -9,7 +9,11 @@
   left: 10%;
   height: 200px;
   width: 400px;
-  background: #bae8ff
+  background: #bae8ff;
+
+  @media (max-width: 900px) {
+    left: 7.5%;
+  }
 }
 
 .noselect {

@@ -56,7 +56,7 @@ html {
 
 #main-content {
   position: fixed;
-  top: 25%;
+  top: 30%;
   right: 0;
 
   height: 50%;
@@ -65,7 +65,7 @@ html {
   min-width: 590px;
   z-index: 1;
 
-  background: #dcf6ff;
+  background: rgba(220, 246, 255, 0.7);
 }
 
 #j-header, #j-footer {
