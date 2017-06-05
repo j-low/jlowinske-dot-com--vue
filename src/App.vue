@@ -66,6 +66,7 @@ html {
   z-index: 1;
 
   background: rgba(220, 246, 255, 0.7);
+  // background: rgba(182, 250, 255, 0.7);
 }
 
 #j-header, #j-footer {

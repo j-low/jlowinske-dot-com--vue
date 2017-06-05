@@ -1,6 +1,6 @@
 <template>
   <section id="home" class="j-primary-view">
-    <con-head-top v-bind:heading="heading"></con-head-top>
+    <con-head-top heading="hello" context="home"></con-head-top>
     <con-head-bottom></con-head-bottom>
     <div id="main-content">
       <div class="home-content--inner">
@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import conHeadTop from 'components/layout/contentHeadingTop';
-import conHeadBottom from 'components/layout/contentHeadingBottom';
+import conHeadTop from 'components/layout/contentHeadingHorizontalTop';
+import conHeadBottom from 'components/layout/contentHeadingHorizontalBottom';
 import navBox from 'components/Home/navBox';
 var methods = {};
 
@@ -27,14 +27,8 @@ export default {
     conHeadBottom: conHeadBottom,
     navBox: navBox
   },
-  data: function() {
-    return {
-      heading: 'grüss dich'
-    }
-  },
   methods: methods
 };
-
 </script>
 
 

@@ -3,13 +3,40 @@
     <div class="cht--inner"></div>
     <div class="content-label-container">
     </div>
-    <span class="content-label">{{ heading }}</span>
+    <span class="content-label">{{ mutableHeading }}</span>
   </div>
 </template>
 
 <script>
+import anim from 'anim/Layout';
+
+var methods = {};
+_.assign(methods, anim);
+
 export default {
-  props: ['heading']
+  props: ['context', 'heading'],
+  data: function() {
+    return {
+      mutableHeading: this.heading
+    }
+  },
+  methods: methods,
+  mounted: function() {
+    var _this = this;
+    var index = 0;
+    const greetings = ['grüss dich', 'bonjour', 'હેલ્લો', 'hello', 'buenos días', 'こんにちは', 'hej', 'नमस्ते', 'hello', 'aloha', 'مرحبا', 'sawubona', 'hallo', 'Здравствуйте', 'hallå'];
+
+    if (_this.context === 'home') {
+      setInterval(function() {
+        _this.flipHeading(greetings[index], _this);
+        index++;
+
+        if (index === greetings.length) {
+          index = 0;
+        }
+      }, 3000);
+    }
+  }
 }
 </script>
 

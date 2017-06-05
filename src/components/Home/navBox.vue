@@ -1,9 +1,9 @@
 <template>
   <router-link v-bind:to="route">
     <div class="home-nav-box"
-    v-bind:class="route"
-    v-on:mouseenter="mouseenter"
-    v-on:mouseleave="mouseleave">
+      v-bind:class="route"
+      v-on:mouseenter="mouseenter"
+      v-on:mouseleave="mouseleave">
     <div class="nav-box-label">
       <span>{{ label }}</span>
     </div>
