@@ -1,5 +1,5 @@
 <template>
-  <router-link v-bind:to="route">
+  <router-link :to="route">
     <div class="home-nav-box"
       v-bind:class="route"
       v-on:mouseenter="mouseenter"
@@ -9,7 +9,6 @@
     </div>
 
     <div class="nav-box-front"></div>
-    <div class="nav-box-back"></div>
   </div>
   </router-link>
 </template>
@@ -32,7 +31,8 @@ export default {
 .home-nav-box {
   display: inline-block;
   height: 75px;
-  width: 150px;
+  width: 75px;
+  border-radius: 50%;
   margin: 0 45px;
 
   @media (max-width: 915px) {
@@ -49,14 +49,16 @@ export default {
   position: absolute;
   font-weight: bold;
   height: 75px;
-  width: 150px;
+  width: 75px;
+  border-radius: 50%;
   z-index: 2;
 
   span {
     color: #777777;
     font-size: 12px;
     display: block;
-    margin-top: 10px;
+    margin-top: 8px;
+    margin-left: 5px;
   }
 }
 
@@ -64,46 +66,12 @@ export default {
   @extend .flex-center-hv;
   position: absolute;
   height: 75px;
-  width: 150px;
+  width: 75px;
   background: #ffffff;
   border-width: 3px;
-  border-style: solid;
-  border-color: #333333;
-  transform: skew(0, 7deg);
-  z-index: 1;
-}
-
-.nav-box-back {
+  border-style: double;
+  border-color: #ffadad;
   border-radius: 50%;
-  height: 75px;
-  width: 140px;
-  margin-top: 1.5px;
-  margin-left: 7px;
-  position: absolute;
-  transform: skew(0, -30deg);
-}
-
-.blog {
-
-  .nav-box-back {
-    background: #c6ffdb;
-    border: 1px solid #ffffff;
-  }
-}
-
-.d3 {
-
-  .nav-box-back {
-    background: #ffebd4;
-    border: 1px solid #ffffff;
-  }
-}
-
-.about {
-
-  .nav-box-back {
-    background: #ffe9f7;
-    border: 1px solid #ffffff;
-  }
+  z-index: 1;
 }
 </style>

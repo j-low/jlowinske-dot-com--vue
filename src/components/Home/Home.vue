@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import conHeadTop from 'components/layout/contentHeadingHorizontalTop';
-import conHeadBottom from 'components/layout/contentHeadingHorizontalBottom';
+import conHeadTop from 'components/layout/contentHeadingTop';
+import conHeadBottom from 'components/layout/contentHeadingBottom';
 import navBox from 'components/Home/navBox';
 var methods = {};
 

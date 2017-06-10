@@ -10,7 +10,7 @@
 
 <script>
 // import _ from 'lodash'
-import { TweenLite, Power2, TimelineLite } from 'gsap';
+import { TweenLite, Power1, Power2, TimelineLite, CSSPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
@@ -28,7 +28,6 @@ export default {
 
 <style lang="scss">
 @import '~scss/classes';
-@import '~scss/colors';
 @import '~scss/mixins';
 
 html {
@@ -67,11 +66,5 @@ html {
 
   background: rgba(220, 246, 255, 0.7);
   // background: rgba(182, 250, 255, 0.7);
-}
-
-#j-header, #j-footer {
-  color: $white;
-  @extend .flex-center-hv;
-  width: 100%;
 }
 </style>

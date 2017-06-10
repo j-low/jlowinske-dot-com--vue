@@ -1,98 +1,37 @@
-const mouseenter = _.debounce(function(e) {
+export default {
+  mouseenter: mouseenter,
+  mouseleave: mouseleave
+}
+
+function mouseenter(e) {
     const className = '.' + e.target.classList[1];
     const front = $(className + ' .' + 'nav-box-front');
-    const back = $(className + ' .' + 'nav-box-back');
     const label = $(className + ' .' + 'nav-box-label span');
 
     var tl = new TimelineLite();
 
-    // stage I
     tl.add('enter_anim')
-    .to(front, 0.2, {
-      borderRadius: '50%',
-      transform: 'skew(0, 30deg)'
-    }, 'enter_anim')
-    .to(back, 0.2, {
-      transform: 'skew(15deg, -40deg)'
-    }, 'enter_anim')
+        .to(front, 0.2, {
+            height: 100,
+            width: 100,
+            marginTop: -12,
+            marginLeft: -12,
+            transform: 'skew(0deg, 0deg)'
+        }, 'enter_anim');
+}
 
-    // stage II
-    .to(front, 0.2, {
-      transform: 'skew(15deg, -30deg)'
-    }, 'enter_anim+=0.2')
-    .to(back, 0.2, {
-      transform: 'skew(0, 40deg)'
-    }, 'enter_anim+=0.2')
-
-    // finish
-    .to(front, 0.2, {
-      borderRadius: 0,
-      transform: 'skew(0, 0deg)',
-      marginTop: -7.5,
-      marginLeft: -15,
-      height: 90,
-      width: 180
-    }, 'enter_anim+=0.4')
-    .to(back, 0.2, {
-      height: 0,
-      width: 0,
-    }, 'enter_anim+=0.4')
-    .to(label, 0.2, {
-      fontSize: 14,
-      textTransform: 'uppercase',
-    }, 'enter_anim+=0.4');
-
-  }, 750, { leading: true });
-
-const mouseleave = _.debounce(function(e) {
+function mouseleave(e) {
     const className = '.' + e.target.classList[1];
     const front = $(className + ' .' + 'nav-box-front');
-    const back = $(className + ' .' + 'nav-box-back');
     const label = $(className + ' .' + 'nav-box-label span');
 
     var tl = new TimelineLite();
 
     tl.add('leave_anim')
-
-    // stage I
-    .to(front, 0.2, {
-      borderRadius: '50%',
-      height: 75,
-      width: 150,
-      marginTop: 0,
-      marginLeft: 0,
-      transform: 'skew(15deg, -30deg)'
-    }, 'leave_anim')
-    .to(back, 0.2, {
-      transform: 'skew(0, 40deg)',
-      height: 75,
-      width: 140,
-    }, 'leave_anim')
-    .to(label, 0.2, {
-      fontSize: 12,
-      textTransform: 'lowercase',
-    }, 'leave_anim')
-
-    // stage II
-    .to(front, 0.2, {
-      transform: 'skew(0, 30deg)'
-    }, 'leave_anim+=0.2')
-    .to(back, 0.2, {
-      transform: 'skew(15deg, -40deg)',
-    }, 'leave_anim+=0.2')
-
-    // finish
-    .to(front, 0.2, {
-      borderRadius: 0,
-      transform: 'skew(0, 7deg)'
-    }, 'leave_anim+=0.4')
-    .to(back, 0.2, {
-      transform: 'skew(0deg, -30deg)',
-    }, 'leave_anim+=0.4');
-
-  }, 750, { leading: true });
-
-  export default {
-    mouseenter: mouseenter,
-    mouseleave: mouseleave
-  }
+        .to(front, 0.2, {
+            height: 75,
+            width: 75,
+            marginTop: 0,
+            marginLeft: 0
+        }, 'leave_anim');
+}

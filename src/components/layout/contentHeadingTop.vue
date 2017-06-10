@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import anim from 'anim/Layout';
+import anim from 'anim/Layout/contentHeading';
 
 var methods = {};
 _.assign(methods, anim);
