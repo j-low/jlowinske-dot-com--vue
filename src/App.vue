@@ -2,7 +2,7 @@
   <div id="app">
     <div id="app-container">
       <jHeader/>
-      <con-head-top heading="hello" context="home"></con-head-top>
+      <con-head-top :heading="context.heading" :context="context.name"></con-head-top>
       <con-head-bottom></con-head-bottom>
       <div id="main-content">
         <router-view></router-view>
@@ -16,6 +16,7 @@
 import { TweenLite, Power1, Power2, TimelineMax, CSSPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import appUtils from 'util/AppUtils';
 
 import jHeader from 'components/layout/jHeader';
 import jFooter from 'components/layout/jFooter';
@@ -31,11 +32,11 @@ export default {
     conHeadBottom: conHeadBottom
   },
   computed: {
-    heading: function() {
-      return this.$route;
-    },
     context: function() {
-      return;
+      return {
+        name: this.$route.name,
+        heading: appUtils.getHeading(this.$route.name)
+      };
     }
   },
   watch: {
@@ -45,6 +46,10 @@ export default {
 
 function watchRoute(route) {
   console.log('change route: ', route);
+  this.context = {
+    name: route.name,
+    heading: appUtils.getHeading(this.$route.name)
+  }
 }
 </script>
 
