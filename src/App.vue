@@ -2,7 +2,11 @@
   <div id="app">
     <div id="app-container">
       <jHeader/>
-      <router-view></router-view>
+      <con-head-top heading="hello" context="home"></con-head-top>
+      <con-head-bottom></con-head-bottom>
+      <div id="main-content">
+        <router-view></router-view>
+      </div>
       <jFooter/>
     </div>
   </div>
@@ -15,12 +19,24 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 import jHeader from 'components/layout/jHeader';
 import jFooter from 'components/layout/jFooter';
+import conHeadTop from 'components/layout/contentHeadingTop';
+import conHeadBottom from 'components/layout/contentHeadingBottom';
 
 export default {
   name: 'app',
   components: {
     jHeader: jHeader,
-    jFooter: jFooter
+    jFooter: jFooter,
+    conHeadTop: conHeadTop,
+    conHeadBottom: conHeadBottom
+  },
+  computed: {
+    heading: function() {
+      return this.$route;
+    },
+    context: function() {
+      return;
+    }
   },
   watch: {
     $route: watchRoute
@@ -62,7 +78,6 @@ a {
 
 #app-container {
   background: rgba(34, 34, 34, 0.7);
-  // background: rgba(34, 34, 34, 1);
 }
 
 #main-content {
