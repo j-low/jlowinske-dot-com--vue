@@ -1,8 +1,8 @@
 <template>
-  <div class="social-link" :social-link-label="linkLabel"
-    v-on:mouseenter="mouseenter"
-    v-on:mouseleave="mouseleave">
-    <div class="social-link-icon-container">
+  <div class="social-link-anchor">
+    <div class="social-link"
+      v-on:mouseenter="mouseenter"
+      v-on:mouseleave="mouseleave">
       <a :href="linkUrl" :target="targetAttr">
         <i :class="iconClass"></i>
       </a>
@@ -16,7 +16,7 @@ var methods = {};
 _.assign(methods, anim);
 
 export default {
-  props: [ 'iconClass', 'linkUrl', 'openNewWindow', 'linkLabel'],
+  props: [ 'iconClass', 'linkUrl', 'openNewWindow'],
   methods: methods,
   computed: {
     targetAttr: function() {
@@ -27,31 +27,34 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~scss/classes';
 
-.social-link {
-  height: 35px;
-  width: 35px;
-  margin-left: 15px;
-  border: 3px double #ffadad;
-  border-radius: 50%;
-  background-color: #ffffff;
+.pulse-anchor {
+  @extend .pulse-anchor-default;
+  border: 2px solid #bae8ff;
 }
 
-.social-link-icon-container {
+.social-link-anchor {
+  @extend .flex-center-hv;
+  height: 35px;
+  width: 35px;
+}
+
+.social-link {
+  z-index: 1;
   @extend .flex-center-hv;
   position: absolute;
-  height: 33px;
-  width: 33px;
-  margin-top: 1px;
-  margin-left: 1px;
+  height: 35px;
+  width: 35px;
+
+  border: 3px double #ffadad;
   border-radius: 50%;
-  background-color: #ffffff;
+  background: #ffffff;
 }
 
 i {
-  color: #777777;
+  color: #555555;
 
   &.fa-github {
     margin-top: 1px;

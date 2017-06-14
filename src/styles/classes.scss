@@ -22,6 +22,12 @@
   }
 }
 
+.pulse-anchor-default {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */

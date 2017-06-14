@@ -5,7 +5,7 @@ export default {
 function flipHeading(label, context) {
   const heading = $('.content-label');
 
-  var tl = new TimelineLite();
+  var tl = new TimelineMax();
 
   tl.to(heading, 0.1, { transform: 'rotateX(90deg)' }, 'flip')
     .call(function() {

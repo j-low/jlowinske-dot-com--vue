@@ -53,4 +53,14 @@ export default {
   border-bottom: 3px solid #fff;
   border-left: 3px solid #fff;
 }
+
+.nav-container {
+  @extend .flex-center-hv;
+  flex-direction: row;
+  width: 100%;
+
+  a {
+    margin: 0 calc(5% + 10px);
+  }
+}
 </style>

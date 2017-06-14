@@ -9,60 +9,54 @@ const ease = Power2.easeInOut;
 
 function mouseenter(ev) {
   const link = $(ev.target);
-  const container = link[0].children[0];
-  const icon = link[0].children[0].children[0].children[0];
+  const parent = link[0].parentNode;
+  const icon = link[0].children[0].children[0];
 
-  var tl = new TimelineLite();
-  tl
-    .from(container, 0.5, {
-      height: 33,
-      width: 33,
-      marginTop: 1,
-      marginLeft: 1,
-      ease: ease
-    })
-    .to(container, 0.5, {
-      height: 48,
-      width: 48,
-      marginTop: -5.5,
-      marginLeft: -5.5,
-      ease: ease
-    }, start)
-    .to(container, 0.5, {
-      backgroundColor: '#ffadad',
+  $('<div class="pulse-anchor"></div>').appendTo(parent);
+
+  const pulse = $('.pulse-anchor')[0];
+
+  TweenMax.to(link, 0.3, {
+      backgroundColor: '#bae8ff',
       borderColor: '#ffffff',
       ease: ease
-    }, start)
-    .to(icon, 0.5, {
+    }, start);
+
+    TweenMax.to(icon, 0.3, {
       color: '#ffffff',
       ease: ease
-    }, start)
-    .to(container, 0.5, {
-      height: 33,
-      width: 33,
-      marginTop: 1,
-      marginLeft: 1,
-      ease: ease
-    }, end);
+    }, start);
+
+    TweenMax.fromTo(pulse, 0.75, {
+      height: 35,
+      width: 35,
+      opacity: 1
+    }, {
+      height: 60,
+      width: 60,
+      opacity: 0,
+      ease: ease,
+      repeat: -1,
+      repeatDelay: 0.25
+    });
 }
 
 function mouseleave(ev) {
   const link = $(ev.target);
-  const container = link[0].children[0];
-  const icon = link[0].children[0].children[0].children[0];
+  const pulse = $('.pulse-anchor');
+  const icon = link[0].children[0].children[0];
 
-  var tl = new TimelineLite();
-  tl.to(container, 0.5, {
-    rotation: -360,
-    ease: ease
-  }, start)
-  .to(container, 0.5, {
-    backgroundColor: '#ffffff',
-    borderColor: '#ffadad',
-    ease: ease
-  }, start)
-  .to(icon, 0.5, {
-    color: '#777777',
-    ease: ease
-  }, start);
+  pulse.remove();
+
+  var tl = new TimelineMax();
+
+  tl.to(link, 0.3, {
+      backgroundColor: '#ffffff',
+      borderColor: '#ffadad',
+      ease: ease
+    }, start)
+    .to(icon, 0.3, {
+      color: '#555555',
+      ease: ease
+    }, start);
 }

@@ -9,8 +9,7 @@
 </template>
 
 <script>
-// import _ from 'lodash'
-import { TweenLite, Power1, Power2, TimelineLite, CSSPlugin } from 'gsap';
+import { TweenLite, Power1, Power2, TimelineMax, CSSPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
@@ -22,8 +21,15 @@ export default {
   components: {
     jHeader: jHeader,
     jFooter: jFooter
+  },
+  watch: {
+    $route: watchRoute
   }
 };
+
+function watchRoute(route) {
+  console.log('change route: ', route);
+}
 </script>
 
 <style lang="scss">
@@ -35,12 +41,17 @@ html {
   cursor: default;
 }
 
+a {
+  cursor: default;
+}
+
 #app, #app-container {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  background-image: url('./assets/dark.png');
 }
 
 #app {
@@ -50,7 +61,8 @@ html {
 }
 
 #app-container {
-  background-color: rgba(255, 255, 255, 1);
+  background: rgba(34, 34, 34, 0.7);
+  // background: rgba(34, 34, 34, 1);
 }
 
 #main-content {
@@ -64,7 +76,6 @@ html {
   min-width: 590px;
   z-index: 1;
 
-  background: rgba(220, 246, 255, 0.7);
-  // background: rgba(182, 250, 255, 0.7);
+  background: rgba(162, 148, 159, 0.5);
 }
 </style>

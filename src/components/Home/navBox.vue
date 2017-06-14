@@ -31,17 +31,7 @@ export default {
 .home-nav-box {
   display: inline-block;
   height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  margin: 0 45px;
-
-  @media (max-width: 915px) {
-    margin: 0 30px;
-  }
-
-  @media (max-width: 800px) {
-    margin: 0 15px;
-  }
+  width: 150px;
 }
 
 .nav-box-label {
@@ -49,13 +39,12 @@ export default {
   position: absolute;
   font-weight: bold;
   height: 75px;
-  width: 75px;
-  border-radius: 50%;
+  width: 150px;
   z-index: 2;
 
   span {
-    color: #777777;
-    font-size: 12px;
+    color: #555555;
+    font-size: 16px;
     display: block;
     margin-top: 8px;
     margin-left: 5px;
@@ -66,12 +55,24 @@ export default {
   @extend .flex-center-hv;
   position: absolute;
   height: 75px;
-  width: 75px;
+  width: 150px;
   background: #ffffff;
   border-width: 3px;
   border-style: double;
   border-color: #ffadad;
-  border-radius: 50%;
   z-index: 1;
+
+  -ms-transform: skew(0deg, 7deg);
+  -webkit-transform: skew(0deg, 7deg);
+  transform: skew(0deg, 7deg);
+}
+
+.hover-strike-thru {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  color: #ffffff;
+  box-shadow: inset 0 0 1px #ffffff;
 }
 </style>
