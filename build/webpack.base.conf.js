@@ -26,7 +26,7 @@ module.exports = {
       '@': resolve('src'),
       'components': path.join(__dirname, '../src/components'),
       'scss': path.join(__dirname, '../src/styles'),
-      'anim': path.join(__dirname, '../src/gsap-scripts'),
+      'anim': path.join(__dirname, '../src/gsap-scripts')
     }
   },
   module: {

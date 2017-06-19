@@ -17,7 +17,11 @@
 import { TweenLite, Power1, Power2, TimelineMax, CSSPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+<<<<<<< HEAD
 import headerAnim from 'anim/layout/contentHeading';
+=======
+import appUtils from 'util/AppUtils';
+>>>>>>> 971f0e70464b70f36c386e2575a0734ba0230a63
 
 import jHeader from 'components/layout/jHeader';
 import jFooter from 'components/layout/jFooter';
