@@ -2,7 +2,8 @@
   <div id="app">
     <div id="app-container">
       <jHeader/>
-      <con-head-top heading="hello" context="home"></con-head-top>
+      <!-- <button class="test-name-button" v-on:click="changeHeading()">CHANGE NAME</button> -->
+      <con-head-top :heading="heading" context="home"></con-head-top>
       <con-head-bottom></con-head-bottom>
       <div id="main-content">
         <router-view></router-view>
@@ -16,11 +17,19 @@
 import { TweenLite, Power1, Power2, TimelineMax, CSSPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import headerAnim from 'anim/layout/contentHeading';
 
 import jHeader from 'components/layout/jHeader';
 import jFooter from 'components/layout/jFooter';
 import conHeadTop from 'components/layout/contentHeadingTop';
 import conHeadBottom from 'components/layout/contentHeadingBottom';
+
+const homeGreetings = ['grüss dich', 'bonjour', 'હેલ્લો', 'hello', 'buenos días', 'こんにちは', 'përshëndetje', 'नमस्ते', 'hello', 'aloha', 'مرحبا', 'sawubona', 'hallo', 'Здравствуйте', 'hallå'];
+
+var timer;
+var headingIndex = 0;
+var methods = {};
+_.assign(methods, headerAnim);
 
 export default {
   name: 'app',
@@ -30,25 +39,56 @@ export default {
     conHeadTop: conHeadTop,
     conHeadBottom: conHeadBottom
   },
+  data: function() {
+    return {
+      heading: '',
+    };
+  },
   computed: {
-    heading: function() {
-      return this.$route;
-    },
-    context: function() {
-      return;
+    compHeading: {
+      get: function() {
+        return this.heading;
+      },
+      set: function(val) {
+        this.heading = val;
+      }
     }
   },
+  mounted: mounted,
   watch: {
-    $route: watchRoute
-  }
+    $route: function changeRouteCallback(route) {
+      watchRoute(this, route);
+    }
+  },
+  methods: methods
 };
 
-function watchRoute(route) {
-  console.log('change route: ', route);
+function mounted() {
+  watchRoute(this, this.$route);
+}
+
+function watchRoute(ctx, route) {
+  if (route.path === '/') {
+    headingIndex = 0;
+    ctx.flipHeading(ctx, homeGreetings[0]);
+    timer = setInterval(function() {
+      headingIndex = headingIndex === homeGreetings.length - 1 ? 0 : headingIndex + 1;
+      ctx.flipHeading(ctx, homeGreetings[headingIndex]);
+
+    }, 2000);
+  } else {
+    clearInterval(timer);
+    ctx.flipHeading(ctx, route.name);
+  }
 }
 </script>
 
 <style lang="scss">
+.test-name-button {
+  background: red;
+  height: 33px;
+};
+
 @import '~scss/classes';
 @import '~scss/mixins';
 
