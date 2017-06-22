@@ -1,25 +1,38 @@
 <template>
   <section id="home">
     <div class="home-content--inner">
-      <div class="nav-container">
-        <nav-box label="blog" route="blog"></nav-box>
-        <nav-box label="d3.js" route="d3"></nav-box>
-        <nav-box label="about" route="about"></nav-box>
-      </div>
+      <nav-box label="blog" route="blog"></nav-box>
+      <nav-box label="d3.js" route="d3"></nav-box>
+      <nav-box label="about" route="about"></nav-box>
     </div>
   </section>
 </template>
 
 <script>
 import navBox from 'components/Home/navBox';
+
+import homeAnim from 'anim/Home/Home';
 var methods = {};
+_.assign(methods, homeAnim);
+
 
 export default {
   name: 'home',
   components: {
     navBox: navBox
   },
-  methods: methods
+  methods: methods,
+  beforeRouteEnter: function(t, f, next) {
+    next(function() {
+      methods.beforeRouteEnter()
+    });
+  },
+  beforeRouteLeave: function(t, f, next) {
+    this.beforeRouteLeave()
+      .then(function(then) {
+        next();
+      });
+  }
 };
 </script>
 
@@ -36,7 +49,6 @@ export default {
 }
 
 .home-content--inner {
-  @extend .flex-center-hv;
   height: calc(100% - 25px);
   width: 100%;
   margin: 10px 9px;
@@ -44,15 +56,24 @@ export default {
   border-top: 3px solid #fff;
   border-bottom: 3px solid #fff;
   border-left: 3px solid #fff;
-}
-
-.nav-container {
-  @extend .flex-center-hv;
-  flex-direction: row;
-  width: 100%;
 
   a {
-    margin: 0 calc(5% + 10px);
+    position: absolute;
+    top: calc(50% - 37.5px);
+    // margin: 0 30px;
+
+    &.blog {
+      left: 110%;
+    }
+
+    &.d3 {
+      left: 110%;
+    }
+
+    &.about {
+      left: 110%;
+    }
   }
 }
+
 </style>

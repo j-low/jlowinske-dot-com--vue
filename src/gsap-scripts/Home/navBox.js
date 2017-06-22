@@ -12,7 +12,6 @@ function mouseenter(e) {
 
     const strike = $('.hover-strike-thru')[0];
 
-    // var tl = new TimelineMax({repeat: -1, repeatDelay: 0.5 });
     var tl = new TimelineMax();
 
     tl.add('strike_thru')

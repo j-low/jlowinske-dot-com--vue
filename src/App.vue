@@ -2,8 +2,7 @@
   <div id="app">
     <div id="app-container">
       <jHeader/>
-      <!-- <button class="test-name-button" v-on:click="changeHeading()">CHANGE NAME</button> -->
-      <con-head-top :heading="heading" context="home"></con-head-top>
+      <con-head-top :heading="heading"></con-head-top>
       <con-head-bottom></con-head-bottom>
       <div id="main-content">
         <router-view></router-view>
@@ -17,11 +16,7 @@
 import { TweenLite, Power1, Power2, TimelineMax, CSSPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
-<<<<<<< HEAD
 import headerAnim from 'anim/layout/contentHeading';
-=======
-import appUtils from 'util/AppUtils';
->>>>>>> 971f0e70464b70f36c386e2575a0734ba0230a63
 
 import jHeader from 'components/layout/jHeader';
 import jFooter from 'components/layout/jFooter';
@@ -64,7 +59,10 @@ export default {
       watchRoute(this, route);
     }
   },
-  methods: methods
+  methods: methods,
+  beforeRouteEnter: function() {
+    console.log('ENTER HOME ROUTE');
+  }
 };
 
 function mounted() {
@@ -76,7 +74,7 @@ function watchRoute(ctx, route) {
     headingIndex = 0;
     ctx.flipHeading(ctx, homeGreetings[0]);
     timer = setInterval(function() {
-      headingIndex = headingIndex === homeGreetings.length - 1 ? 0 : headingIndex + 1;
+      headingIndex = headingIndex < homeGreetings.length - 1 ? headingIndex + 1 : 0;
       ctx.flipHeading(ctx, homeGreetings[headingIndex]);
 
     }, 2000);

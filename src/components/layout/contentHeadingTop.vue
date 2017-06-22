@@ -10,23 +10,7 @@
 <script>
 
 export default {
-  props: ['context', 'heading'],
-  mounted: function() {
-    // var _this = this;
-    // var index = 0;
-    // const greetings = ['grüss dich', 'bonjour', 'હેલ્લો', 'hello', 'buenos días', 'こんにちは', 'përshëndetje', 'नमस्ते', 'hello', 'aloha', 'مرحبا', 'sawubona', 'hallo', 'Здравствуйте', 'hallå'];
-    //
-    // if (_this.context === 'home') {
-    //   setInterval(function() {
-    //     _this.flipHeading(greetings[index], _this);
-    //     index++;
-    //
-    //     if (index === greetings.length) {
-    //       index = 0;
-    //     }
-    //   }, 3000);
-    // }
-  }
+  props: ['heading']
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="route">
+  <router-link :to="route" :class="route">
     <div class="home-nav-box"
       v-bind:class="route"
       v-on:mouseenter="mouseenter"
