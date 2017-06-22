@@ -30,23 +30,25 @@ export default {
 
 .home-nav-box {
   display: inline-block;
-  height: 75px;
+  height: 150px;
   width: 150px;
+  border-radius: 50%;
 }
 
 .nav-box-label {
   @extend .flex-center-hv;
   position: absolute;
   font-weight: bold;
-  height: 75px;
+  height: 150px;
   width: 150px;
+  border-radius: 50%;
   z-index: 2;
 
   span {
     color: #555555;
-    font-size: 16px;
+    font-size: 20px;
     display: block;
-    margin-top: 8px;
+    margin-top: 6px;
     margin-left: 5px;
   }
 }
@@ -54,17 +56,14 @@ export default {
 .nav-box-front {
   @extend .flex-center-hv;
   position: absolute;
-  height: 75px;
+  height: 150px;
   width: 150px;
+  border-radius: 50%;
   background: #ffffff;
   border-width: 3px;
   border-style: double;
   border-color: #ffadad;
   z-index: 1;
-
-  -ms-transform: skew(0deg, 7deg);
-  -webkit-transform: skew(0deg, 7deg);
-  transform: skew(0deg, 7deg);
 }
 
 .hover-strike-thru {

@@ -59,8 +59,7 @@ export default {
 
   a {
     position: absolute;
-    top: calc(50% - 37.5px);
-    // margin: 0 30px;
+    top: calc(50% - 75px);
 
     &.blog {
       left: 110%;

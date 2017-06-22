@@ -26,14 +26,14 @@ function mouseenter(e) {
     }, 'strike_thru');
 
     TweenMax.to(front, 0.2, {
-          height: 100,
-          width: 200,
+          // height: 100,
+          // width: 200,
           background: 'rgba(255, 255, 255, 0.05)',
           borderWidth: 1,
           borderColor: '#ffffff',
           boxShadow: 'inset 0 0 5px #ffffff',
-          marginTop: -11.5,
-          marginLeft: -24.5,
+          marginTop: 1,
+          marginLeft: 1,
           transform: 'skew(0deg, 0deg)',
           ease: Power2.easeInOut
         });
@@ -61,20 +61,20 @@ function mouseleave(e) {
         left: '100%'
       }, 'unstrike_unshift')
       .to(front, 0.2, {
-          height: 75,
-          width: 150,
+          // height: 75,
+          // width: 150,
           background: '#ffffff',
           boxShadow: 'none',
           borderColor: "#ffadad",
           borderWidth: 3,
           marginTop: 0,
           marginLeft: 0,
-          transform: 'skew(0deg, 7deg)',
+          // transform: 'skew(0deg, 7deg)',
           ease: Power2.easeInOut
         }, 'unstrike_unshift+=0.2')
         .to(label, 0.2, {
           color: '#555555',
-          fontSize: 16,
+          fontSize: 20,
           textTransform: 'none',
           textShadow: '0 0 0px #ffffff'
         }, 'unstrike_unshift+=0.2')
