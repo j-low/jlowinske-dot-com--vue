@@ -1,15 +1,15 @@
 <template>
   <section id="home">
     <div class="home-content--inner">
-      <nav-box label="blog" route="blog"></nav-box>
-      <nav-box label="d3.js" route="d3"></nav-box>
-      <nav-box label="about" route="about"></nav-box>
+      <nav-sphere label="blog" route="blog"></nav-sphere>
+      <nav-sphere label="d3.js" route="d3"></nav-sphere>
+      <nav-sphere label="about" route="about"></nav-sphere>
     </div>
   </section>
 </template>
 
 <script>
-import navBox from 'components/Home/navBox';
+import navSphere from 'components/Home/navSphere';
 
 import homeAnim from 'anim/Home/Home';
 var methods = {};
@@ -19,7 +19,7 @@ _.assign(methods, homeAnim);
 export default {
   name: 'home',
   components: {
-    navBox: navBox
+    navSphere: navSphere
   },
   methods: methods,
   beforeRouteEnter: function(t, f, next) {

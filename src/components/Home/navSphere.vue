@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import anim from 'anim/Home/navBox';
+import anim from 'anim/Home/navSphere';
 var methods = {};
 _.assign(methods, anim);
 
