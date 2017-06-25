@@ -52,7 +52,7 @@ function mouseleave(ev) {
 
   tl.to(link, 0.3, {
       backgroundColor: '#ffffff',
-      borderColor: '#ffadad',
+      borderColor: '#ff00f8',
       ease: ease
     }, start)
     .to(icon, 0.3, {

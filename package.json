@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "d3": "^4.9.1",
+    "d3": "^3.5.17",
     "font-awesome": "^4.7.0",
     "gsap": "^1.19.1",
     "jquery": "^3.2.1",

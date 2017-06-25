@@ -13,9 +13,6 @@
 
 #content-heading-bottom {
   top: calc(15% + 200px);
-
-  position: fixed;
-
   border-bottom-left-radius: 400px;
   border-bottom-right-radius: 400px;
   z-index: 0;

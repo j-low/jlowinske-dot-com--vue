@@ -48,8 +48,8 @@ export default {
     color: #555555;
     font-size: 20px;
     display: block;
-    margin-top: 6px;
-    margin-left: 5px;
+    margin-top: 9px;
+    margin-left: 10px;
   }
 }
 
@@ -60,9 +60,9 @@ export default {
   width: 150px;
   border-radius: 50%;
   background: #ffffff;
-  border-width: 3px;
+  border-width: 5px;
   border-style: double;
-  border-color: #ffadad;
+  border-color: #00ffff;
   z-index: 1;
 }
 

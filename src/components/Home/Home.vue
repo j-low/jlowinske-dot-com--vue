@@ -1,6 +1,6 @@
 <template>
   <section id="home">
-    <div class="home-content--inner">
+    <div class="inner-content inner-content--home">
       <nav-sphere label="blog" route="blog"></nav-sphere>
       <nav-sphere label="d3.js" route="d3"></nav-sphere>
       <nav-sphere label="about" route="about"></nav-sphere>
@@ -44,18 +44,10 @@ export default {
 
 #home {
   height: 100%;
-  color: $white;
-
+  color: #ffffff;
 }
 
-.home-content--inner {
-  height: calc(100% - 25px);
-  width: 100%;
-  margin: 10px 9px;
-  background: none;
-  border-top: 3px solid #fff;
-  border-bottom: 3px solid #fff;
-  border-left: 3px solid #fff;
+.inner-content--home {
 
   a {
     position: absolute;

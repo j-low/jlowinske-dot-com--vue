@@ -23,7 +23,7 @@ import jFooter from 'components/layout/jFooter';
 import conHeadTop from 'components/layout/contentHeadingTop';
 import conHeadBottom from 'components/layout/contentHeadingBottom';
 
-const homeGreetings = ['grüss dich', 'bonjour', 'હેલ્લો', 'hello', 'buenos días', 'こんにちは', 'përshëndetje', 'नमस्ते', 'hello', 'aloha', 'مرحبا', 'sawubona', 'hallo', 'Здравствуйте', 'hallå'];
+const homeGreetings = ['hello', 'grüss dich', 'bonjour', 'હેલ્લો', 'hello', 'buenos días', 'こんにちは', 'përshëndetje', 'नमस्ते', 'hello', 'aloha', 'مرحبا', 'sawubona', 'hallo', 'Здравствуйте', 'hallå'];
 
 var timer;
 var headingIndex = 0;
@@ -59,10 +59,7 @@ export default {
       watchRoute(this, route);
     }
   },
-  methods: methods,
-  beforeRouteEnter: function() {
-    console.log('ENTER HOME ROUTE');
-  }
+  methods: methods
 };
 
 function mounted() {
@@ -126,13 +123,22 @@ a {
   position: fixed;
   top: 30%;
   right: 0;
-
-  height: 50%;
-  min-height: 400px;
-  width: 80%;
-  min-width: 590px;
+  bottom: 20%;
+  left: 20%;
   z-index: 1;
 
   background: rgba(162, 148, 159, 0.5);
+}
+
+.inner-content {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  bottom: 10px;
+  left: 9px;
+  background: none;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-left: 3px solid #fff;
 }
 </style>

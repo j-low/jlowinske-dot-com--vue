@@ -48,7 +48,7 @@ export default {
   height: 35px;
   width: 35px;
 
-  border: 3px double #ffadad;
+  border: 3px double #ff00f8;
   border-radius: 50%;
   background: #ffffff;
 }

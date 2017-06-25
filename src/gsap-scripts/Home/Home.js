@@ -1,14 +1,29 @@
 export default {
   beforeRouteEnter: beforeRouteEnter,
   beforeRouteLeave: beforeRouteLeave
-}
+};
 
 function beforeRouteEnter() {
-  var navSpheres = $('.home-content--inner a');
+  var navSpheres = $('.inner-content--home a');
+  var mainContent = $('#main-content');
+  var conHead = $('.hemisphere');
 
   var parentTl = new TimelineMax({ paused: true });
   var childTls = [];
   var staggerInt = 0.2;
+
+  var layoutTl = new TimelineMax();
+  layoutTl.add('layout')
+    .to(mainContent, 0.3, {
+      top: '30%',
+      right: 0,
+      bottom: '20%',
+      left: '20%'
+    }, 'layout')
+    .to(conHead, 0.3, {
+      left: '10%'
+    }, 'layout');
+  childTls.push(layoutTl);
 
   _.forEach(navSpheres, function(nb, i) {
     var tl = new TimelineMax();
@@ -23,7 +38,7 @@ function beforeRouteEnter() {
 
 function beforeRouteLeave() {
   return new Promise(function(resolve, reject) {
-    var navSpheres = $('.home-content--inner a');
+    var navSpheres = $('.inner-content--home a');
 
     var parentTl = new TimelineMax({ onComplete: function() {
         resolve(true);

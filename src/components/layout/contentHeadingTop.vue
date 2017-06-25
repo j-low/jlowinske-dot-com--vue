@@ -20,7 +20,6 @@ export default {
 
 #content-heading-top {
   @extend .flex-center-hv;
-  position: fixed;
   top: 15%;
   border-top-left-radius: 400px;
   border-top-right-radius: 400px;
