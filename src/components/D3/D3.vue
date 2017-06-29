@@ -1,7 +1,7 @@
 <template>
   <section id="d3">
     <div class="inner-content inner-content--d3">
-      <donut></donut>
+      <!-- <donut></donut> -->
       <!-- <line-chart></line-chart> -->
     </div>
   </section>
@@ -11,9 +11,9 @@
 import donut from 'components/D3/donut';
 import lineChart from 'components/D3/line-chart';
 
-import homeAnim from 'anim/D3/D3';
+import d3Anim from 'anim/D3/D3';
 var methods = {};
-_.assign(methods, homeAnim);
+_.assign(methods, d3Anim);
 
 export default {
   name: 'd3',
