@@ -1,6 +1,5 @@
 <template>
   <section id="about">
-    <div class="inner-content inner-content--about"></div>
   </section>
 </template>
 
@@ -27,5 +26,5 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 </style>

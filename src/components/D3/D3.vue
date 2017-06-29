@@ -1,9 +1,5 @@
 <template>
   <section id="d3">
-    <div class="inner-content inner-content--d3">
-      <!-- <donut></donut> -->
-      <!-- <line-chart></line-chart> -->
-    </div>
   </section>
 </template>
 
@@ -38,10 +34,4 @@ export default {
 
 
 <style lang="scss">
-#d3 {
-  height: 100%;
-  color: #ffffff;
-}
-
-.inner-content--d3 {}
 </style>

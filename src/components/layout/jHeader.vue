@@ -1,7 +1,7 @@
 <template>
   <section id="j-header">
     <router-link to="/" class="home-link">
-      <img src="../../assets/jpl_logo.svg" class="jlowinske-logo"></img>
+      <img src="../../assets/logo.svg" class="jlowinske-logo"></img>
     </router-link>
     <div class="social-links-container">
       <social-link
@@ -90,7 +90,7 @@ export default {
   width: 100%;
 
   .social-link-anchor {
-    margin: 0 calc(1% + 7.5px)
+    margin: 0 30px;
   }
 }
 

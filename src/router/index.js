@@ -5,8 +5,6 @@ import Blog from '@/components/Blog';
 import D3 from '@/components/D3/D3';
 import About from '@/components/About';
 
-import stateAnim from 'anim/stateAnim';
-
 Vue.use(Router);
 const routes = [
   {
