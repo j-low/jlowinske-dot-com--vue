@@ -2,17 +2,14 @@
   <div id="app">
     <div id="app-container">
       <jHeader/>
-      <div id="main-content">
-        <router-view></router-view>
-      </div>
-      <jFooter/>
+      <router-view></router-view>
+      <!-- <jFooter/> -->
     </div>
     <div id="bigger-screen">
-      <span>ffs</span>
-      <span>get a</span>
-      <span>bigger</span>
-      <span>monitor</span>
-      <span>already</span>
+      <span>What</span>
+      <span>is this?</span>
+      <span>A viewport</span>
+      <span>for ants?!</span>
     </div>
   </div>
 </template>
@@ -80,15 +77,12 @@ html {
 
 #bigger-screen {
   display: none;
-  background: #555555;
+  padding: 0 30px;
+  background: #333333;
   font-size: 72px;
   font-weight: bold;
   text-transform: uppercase;
   color: #ffffff;
-
-  span {
-    display: block;
-  }
 }
 
 @media(max-width: 660px) {
@@ -97,7 +91,9 @@ html {
   }
 
   #bigger-screen {
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 }
 </style>

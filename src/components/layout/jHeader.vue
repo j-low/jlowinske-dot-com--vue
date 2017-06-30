@@ -59,7 +59,6 @@ export default {
   },
   data: function() {
     return {
-      logo: logo,
       socialLinks: socialLinks
     };
   }
@@ -70,7 +69,16 @@ export default {
 <style lang="scss">
 @import '~scss/classes';
 
-#j-header {}
+#j-header {
+  height: 0;
+  width: 0;
+}
+
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+}
 
 .social-link-anchor {
   position: fixed;
