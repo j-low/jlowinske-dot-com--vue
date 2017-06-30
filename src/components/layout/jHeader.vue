@@ -76,13 +76,13 @@ export default {
 
 .logo {
   position: fixed;
-  top: 20px;
+  top: -200px;
   left: 10px;
 }
 
 .social-link-anchor {
   position: fixed;
-  top: 20px;
+  top: -200px;
 
   &.linkedin {
     right: 445px;

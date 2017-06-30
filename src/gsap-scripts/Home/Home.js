@@ -8,6 +8,8 @@ function beforeRouteEnter() {
   const under = $('.home-bg-under')[0];
   const canvas = $('.home-canvas')[0];
   const checkBack = $('.check-back')[0];
+  const logo = $('.logo')[0];
+  const socialLinks = $('.social-link-anchor');
   const letters = $('.uc-letter');
 
   var parentLeftTl = new TimelineMax({ paused: true });
@@ -20,6 +22,7 @@ function beforeRouteEnter() {
   var shiftInt = 20;
   var leftIndex;
   var rightIndex;
+
 
   if (letters.length % 2 === 0) {
     // even length
@@ -55,28 +58,37 @@ function beforeRouteEnter() {
   parentLeftTl.add(childLeftTls);
   parentRightTl.add(childRightTls);
 
-  var tl = new TimelineMax({ paused: true, onComplete: function() {
+  var mainContentTl = new TimelineMax({ paused: true, onComplete: function() {
     parentLeftTl.play();
     parentRightTl.play();
     checkBackTl.play();
   } });
 
-  tl.add('fly_in')
+  mainContentTl.add('fly_in')
     .to(over, 0.4, {
       left: 30,
       ease: Power2.easeInOut
-    }, 'fly_in+=0.5')
+    }, 'fly_in')
     .to(under, 0.4, {
       right: 30,
       ease: Power2.easeInOut
-    }, 'fly_in+=0.9')
-    .to(canvas, 0.5, {
+    }, 'fly_in+=0.4')
+    .to(canvas, 0.4, {
       opacity: 1,
       top: '50%'
-    }, 'fly_in+=1.3');
+    }, 'fly_in+=0.8');
 
-    tl.play();
+  var headerTl = new TimelineMax({ paused: true, onComplete: function() {
+    mainContentTl.play();
+  }});
+
+  headerTl.staggerTo([logo, socialLinks], 0.4, {
+    top: 20
+  }, 0.2);
+
+  headerTl.play();
 }
+
 
 function beforeRouteLeave() {
   return new Promise(function(resolve, reject) {
