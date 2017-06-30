@@ -33,6 +33,10 @@ export default {
 
 
 <style lang="scss">
+.nav-box svg {
+  height: 100px;
+}
+
 .nsf-cls-1 {
   stroke: #333;
   stroke-miterlimit: 10;

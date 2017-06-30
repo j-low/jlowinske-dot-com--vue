@@ -3,6 +3,7 @@
     class="logo logo-link"
     to="/">
     <svg
+      id="logo"
       viewBox="-20 0 190 150"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">
@@ -37,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-svg {
+svg#logo {
   height: 100px;
 }
 
