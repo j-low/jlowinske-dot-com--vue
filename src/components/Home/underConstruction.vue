@@ -1,9 +1,7 @@
 <template>
     <svg
       id="under-construction"
-      viewBox="-600 0 2000 200"
-      v-on:mouseenter="mouseenter"
-      v-on:mouseleave="mouseleave">
+      viewBox="-600 0 2000 200">
       <title>underConstruction</title>
       <g >
         <g>
@@ -29,14 +27,9 @@
 </template>
 
 <script>
-import ucAnim from 'anim/Home/underConstruction';
-
-var methods = {};
-_.assign(methods, ucAnim);
 
 export default {
-  name: 'underConstruction',
-  methods: methods
+  name: 'underConstruction'
 }
 </script>
 

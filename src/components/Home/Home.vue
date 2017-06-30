@@ -50,20 +50,20 @@ export default {
 
   .home-bg-over, .home-bg-under {
     position: fixed;
-    background: #ffdbc0;
-    opacity: 0.7;
+    background: #06c5ff;
+    opacity: 0.4;
   }
 
   .home-bg-over {
     top: 28%;
     right: 0;
     bottom: 22%;
-    left: 30px;
+    left: 100%;
   }
 
   .home-bg-under {
     top: 32%;
-    right: 30px;
+    right: 100%;
     bottom: 18%;
     left: 0;
   }
@@ -71,9 +71,10 @@ export default {
   .home-canvas {
     position: fixed;
     display: flex;
-    top: 50%;
+    top: 48%;
     right: 0;
     left: 30px;
+    opacity: 0;
 
     svg {
       margin-left: auto;
