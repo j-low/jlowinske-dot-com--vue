@@ -1,7 +1,7 @@
 <template>
     <svg
       id="under-construction"
-      viewBox="0 0 760 72"
+      viewBox="-600 0 2000 200"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">
       <title>underConstruction</title>
@@ -42,7 +42,8 @@ export default {
 
 <style lang="scss">
 svg#under-construction {
-  width: 600px;
+  width: 2000px;
+  height: 200px;
 }
 
 .uc-cls-1 { fill: #333333; }

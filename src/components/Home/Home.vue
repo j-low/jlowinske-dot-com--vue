@@ -5,6 +5,9 @@
     </div>
     <div class="home-canvas">
       <under-construction></under-construction>
+      <div class="check-back">
+        <span>check back soon</span>
+      </div>
     </div>
   </section>
 </template>
@@ -70,12 +73,28 @@ export default {
     display: flex;
     top: 50%;
     right: 0;
-    // bottom: 18%;
     left: 30px;
 
     svg {
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+
+  .check-back {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 0;
+    overflow: hidden;
+
+    span {
+      color: #555;
+      font-size: 24px;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     }
   }
 </style>

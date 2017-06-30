@@ -4,61 +4,72 @@ export default {
 }
 
 function mouseenter(e) {
-  const letters = $('.us-letter');
+  const letters = $('.uc-letter');
+  const checkBack = $('.check-back')[0];
 
   var parentLeftTl = new TimelineMax({ paused: true });
-  var childLeftTls = [];
-
   var parentRightTl = new TimelineMax({ paused: true });
+  var checkBackTl = new TimelineMax({ paused: true });
+
+  var childLeftTls = [];
   var childRightTls = [];
 
-  for(var l = 0, r = letters.length - 1; l > r; l++, r--) {
-    let left = letters[l];
+  var shiftInt = 20;
+  var leftIndex;
+  var rightIndex;
+
+  if (letters.length % 2 === 0) {
+    // even length
+    leftIndex = (letters.length / 2) - 1;
+    rightIndex = (letters.length / 2);
+  } else {
+    // odd length
+    leftIndex = Math.floor(letters.length / 2) - 1;
+    rightIndex = Math.floor(letters.length / 2) + 1;
+  }
+
+  for(var l = leftIndex, r = rightIndex; l >= -1, r < letters.length; l--, r++) {
+    let leftLetter = letters[l];
     let leftTl = new TimelineMax();
 
-    let right = letters[r];
+    let rightLetter = letters[r];
     let rightTl = new TimelineMax();
 
-    leftTl.to(left, 0.3, { x: -15 });
-    rightTl.to(left, 0.3, { x: 15 });
+    leftTl.to(leftLetter, 0.5, { x: -(shiftInt), ease: Power2.easeInOut });
+    rightTl.to(rightLetter, 0.5, { x: shiftInt, ease: Power2.easeInOut });
 
     childLeftTls.push(leftTl);
     childRightTls.push(rightTl);
+
+    shiftInt = shiftInt + 25;
   }
+
+  checkBackTl.to(checkBack, 0.3, {
+    width: 300,
+    ease: Power2.easeInOut
+  })
 
   parentLeftTl.add(childLeftTls);
   parentRightTl.add(childRightTls);
 
   parentLeftTl.play();
   parentRightTl.play();
+  checkBackTl.play();
 }
 
 function mouseleave(e) {
-  const letters = $('.us-letter');
+  const letters = $('.uc-letter');
+  const checkBack = $('.check-back')[0];
 
-  var parentLeftTl = new TimelineMax({ paused: true });
-  var childLeftTls = [];
+  var lettersTl = new TimelineMax({ paused: true });
+  var checkBackTl = new TimelineMax({ paused: true });
 
-  var parentRightTl = new TimelineMax({ paused: true });
-  var childRightTls = [];
+  lettersTl.to(letters, 0.5, { x: 0, y: 0, ease: Power2.easeInOut });
+  checkBackTl.to(checkBack, 0.3, {
+    width: 0,
+    ease: Power2.easeInOut
+  })
 
-  for(var l = 0, r = letters.length - 1; l > r; l++, r--) {
-    let left = letters[l];
-    let leftTl = new TimelineMax();
-
-    let right = letters[r];
-    let rightTl = new TimelineMax();
-
-    leftTl.to(left, 0.3, { x: 0 });
-    rightTl.to(left, 0.3, { x: 0 });
-
-    childLeftTls.push(leftTl);
-    childRightTls.push(rightTl);
-  }
-
-  parentLeftTl.add(childLeftTls);
-  parentRightTl.add(childRightTls);
-
-  parentLeftTl.play();
-  parentRightTl.play();
+  lettersTl.play();
+  checkBackTl.play();
 }
