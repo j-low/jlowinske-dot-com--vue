@@ -1,10 +1,10 @@
 <template>
-  <router-link :to="route" :class="route">
+  <!-- <router-link :to="route" :class="route">
     <div class="nav-box"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">
   </div>
-  </router-link>
+  </router-link> -->
 </template>
 
 <script>
@@ -21,5 +21,4 @@ export default {
 
 <style lang="scss">
 @import "~scss/classes";
-
 </style>

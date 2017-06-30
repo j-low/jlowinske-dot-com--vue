@@ -1,54 +1,51 @@
 <template>
   <section id="j-header">
-    <router-link to="/" class="home-link">
-      <img src="../../assets/logo.svg" class="jlowinske-logo"></img>
-    </router-link>
-    <div class="social-links-container">
-      <social-link
-        v-for="link in socialLinks"
-        :key="link.id"
-        :link-label="link.label"
-        :icon-class="link.iconClass"
-        :linkUrl="link.url"
-        :open-new-window="link.openNewWindow">
-      </social-link>
-    </div>
+    <logo></logo>
+    <social-link
+      v-for="link in socialLinks"
+      :key="link.id"
+      :link-label="link.label"
+      :link-class="link.linkClass"
+      :linkUrl="link.url"
+      :open-new-window="link.openNewWindow">
+    </social-link>
   </section>
 </template>
 
 <script>
 import socialLink from 'components/layout/socialLink';
+import logo from 'components/layout/logo';
 
 var methods = {};
 
 const socialLinks = [
   {
     id: 0,
-    iconClass: 'fa fa-linkedin',
+    linkClass: 'linkedin',
     url: 'https://www.linkedin.com/in/jlowinske/',
     openNewWindow: true
   },
   {
     id: 1,
-    iconClass: 'fa fa-github',
+    linkClass: 'github',
     url: 'https://github.com/j-low',
     openNewWindow: true
   },
   {
     id: 2,
-    iconClass: 'fa fa-instagram',
+    linkClass: 'instagram',
     url: 'https://instagram.com/the.real.jlow/',
     openNewWindow: true
   },
   {
     id: 3,
-    iconClass: 'fa fa-twitter',
+    linkClass: 'twitter',
     url: 'https://twitter.com/j_lowinske',
     openNewWindow: true
   },
   {
     id: 4,
-    iconClass: 'fa fa-envelope-o',
+    linkClass: 'envelope-o',
     url: 'mailto:joe.lowinske@gmail.com',
     openNewWindow: false
   }
@@ -57,10 +54,12 @@ const socialLinks = [
 export default {
   methods: methods,
   components: {
+    logo: logo,
     socialLink: socialLink
   },
   data: function() {
     return {
+      logo: logo,
       socialLinks: socialLinks
     };
   }
@@ -68,37 +67,33 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~scss/classes';
 
-#j-header {
-  display: flex;
-  flex-direction: row;
-  width: calc(100% - 60px);
-  justify-content: flex-end;
-  position: relative;
-  height: 75px;
-  padding: 20px 30px;
-  color: #ffffff;
-}
+#j-header {}
 
-.social-links-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-left: auto;
-  width: 100%;
+.social-link-anchor {
+  position: fixed;
+  top: 20px;
 
-  .social-link-anchor {
-    margin: 0 30px;
+  &.linkedin {
+    right: 445px;
   }
-}
 
-.home-link {
-  margin-right: auto;
-}
+  &.github {
+    right: 350px;
+  }
 
-.jlowinske-logo {
-  height: 75px;
+  &.instagram {
+    right: 255px;
+  }
+
+  &.twitter {
+    right: 160px;
+  }
+
+  &.envelope-o {
+    right: 65px;
+  }
 }
 </style>

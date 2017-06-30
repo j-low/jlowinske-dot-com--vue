@@ -10,20 +10,13 @@ const ease = Power2.easeInOut;
 function mouseenter(ev) {
   const link = $(ev.target);
   const parent = link[0].parentNode;
-  const icon = link[0].children[0].children[0];
 
-  $('<div class="pulse-anchor"></div>').appendTo(parent);
+  $('<div class="pulse-anchor"></div>').appendTo(link);
 
   const pulse = $('.pulse-anchor')[0];
 
   TweenMax.to(link, 0.3, {
-      backgroundColor: '#bae8ff',
-      borderColor: '#ffffff',
-      ease: ease
-    }, start);
-
-    TweenMax.to(icon, 0.3, {
-      color: '#ffffff',
+      backgroundColor: '#06c5ff',
       ease: ease
     }, start);
 
@@ -44,7 +37,6 @@ function mouseenter(ev) {
 function mouseleave(ev) {
   const link = $(ev.target);
   const pulse = $('.pulse-anchor');
-  const icon = link[0].children[0].children[0];
 
   pulse.remove();
 
@@ -52,11 +44,7 @@ function mouseleave(ev) {
 
   tl.to(link, 0.3, {
       backgroundColor: '#ffffff',
-      borderColor: '#ff00f8',
-      ease: ease
-    }, start)
-    .to(icon, 0.3, {
-      color: '#555555',
+      borderColor: '#333333',
       ease: ease
     }, start);
 }

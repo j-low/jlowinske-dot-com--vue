@@ -7,6 +7,13 @@
       </div>
       <jFooter/>
     </div>
+    <div id="bigger-screen">
+      <span>ffs</span>
+      <span>get a</span>
+      <span>bigger</span>
+      <span>monitor</span>
+      <span>already</span>
+    </div>
   </div>
 </template>
 
@@ -53,7 +60,7 @@ html {
   @extend .noselect;
 }
 
-#app, #app-container {
+#app, #app-container, #bigger-screen {
   position: absolute;
   top: 0;
   right: 0;
@@ -69,5 +76,28 @@ html {
 
 #app-container {
   background: #ffffff;
+}
+
+#bigger-screen {
+  display: none;
+  background: #555555;
+  font-size: 72px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  span {
+    display: block;
+  }
+}
+
+@media(max-width: 660px) {
+  #app-container {
+    display: none;
+  }
+
+  #bigger-screen {
+    display: block;
+  }
 }
 </style>

@@ -1,13 +1,11 @@
 <template>
-  <div class="social-link-anchor">
+  <a :class="anchorClass" :href="linkUrl" :target="targetAttr">
     <div class="social-link"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">
-      <a :href="linkUrl" :target="targetAttr">
         <i :class="iconClass"></i>
-      </a>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -16,11 +14,17 @@ var methods = {};
 _.assign(methods, anim);
 
 export default {
-  props: [ 'iconClass', 'linkUrl', 'openNewWindow'],
+  props: [ 'linkClass', 'linkUrl', 'openNewWindow'],
   methods: methods,
   computed: {
     targetAttr: function() {
       return this.openNewWindow === true ? '_blank' : '';
+    },
+    anchorClass: function() {
+      return 'social-link-anchor ' + this.linkClass;
+    },
+    iconClass: function() {
+      return 'fa fa-' + this.linkClass;
     }
   }
 }
@@ -32,11 +36,10 @@ export default {
 
 .pulse-anchor {
   @extend .pulse-anchor-default;
-  border: 2px solid #bae8ff;
+  border: 2px solid #333333;
 }
 
 .social-link-anchor {
-  @extend .flex-center-hv;
   height: 35px;
   width: 35px;
 }
@@ -47,14 +50,13 @@ export default {
   position: absolute;
   height: 35px;
   width: 35px;
-
-  border: 3px double #ff00f8;
+  border: 3px solid #333333;
   border-radius: 50%;
   background: #ffffff;
 }
 
 i {
-  color: #555555;
+  color: #333333;
 
   &.fa-github {
     margin-top: 1px;
