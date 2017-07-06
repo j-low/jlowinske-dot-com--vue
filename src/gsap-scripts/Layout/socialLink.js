@@ -20,17 +20,22 @@ function mouseenter(ev) {
       ease: ease
     }, start);
 
-    TweenMax.fromTo(pulse, 0.75, {
+    TweenMax.fromTo(pulse, 0.5, {
       height: 35,
       width: 35,
+      scale: 1,
+      top: -2,
+      left: -2,
       opacity: 1
     }, {
       height: 60,
       width: 60,
+      top: -14.5,
+      left: -14.5,
       opacity: 0,
       ease: ease,
       repeat: -1,
-      repeatDelay: 0.25
+      repeatDelay: 0.75
     });
 }
 

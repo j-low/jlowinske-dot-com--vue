@@ -84,7 +84,7 @@ export default {
 
   .check-back {
     position: absolute;
-    top: 80px;
+    top: 90px;
     left: 50%;
     display: flex;
     justify-content: center;
