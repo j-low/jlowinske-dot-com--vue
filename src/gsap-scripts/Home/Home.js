@@ -12,9 +12,30 @@ function beforeRouteEnter() {
   const socialLinks = $('.social-link-anchor');
   const letters = $('.uc-letter');
 
-  var parentLeftTl = new TimelineMax({ paused: true });
-  var parentRightTl = new TimelineMax({ paused: true });
-  var checkBackTl = new TimelineMax({ paused: true });
+  var mainTl = new TimelineMax({ paused: true });
+  var headerTl = new TimelineMax();
+  var mainContentTl = new TimelineMax();
+  var parentLeftTl = new TimelineMax();
+  var parentRightTl = new TimelineMax();
+  var checkBackTl = new TimelineMax();
+
+  headerTl.staggerTo([logo, socialLinks], 0.4, {
+    top: 20
+  }, 0.2);
+
+  mainContentTl.add('fly_in')
+    .to(over, 0.4, {
+      left: 30,
+      ease: Power2.easeInOut
+    }, 'fly_in')
+    .to(under, 0.4, {
+      right: 30,
+      ease: Power2.easeInOut
+    }, 'fly_in+=0.4')
+    .to(canvas, 0.4, {
+      opacity: 1,
+      top: '50%'
+    }, 'fly_in+=0.8');
 
   var childLeftTls = [];
   var childRightTls = [];
@@ -50,43 +71,20 @@ function beforeRouteEnter() {
     shiftInt = shiftInt + 25;
   }
 
-  checkBackTl.to(checkBack, 0.3, {
-    width: 300,
-    ease: Power2.easeInOut
-  })
-
   parentLeftTl.add(childLeftTls);
   parentRightTl.add(childRightTls);
 
-  var mainContentTl = new TimelineMax({ paused: true, onComplete: function() {
-    parentLeftTl.play();
-    parentRightTl.play();
-    checkBackTl.play();
-  } });
+  checkBackTl.to(checkBack, 0.3, {
+    width: 300,
+    ease: Power2.easeInOut
+  });
 
-  mainContentTl.add('fly_in')
-    .to(over, 0.4, {
-      left: 30,
-      ease: Power2.easeInOut
-    }, 'fly_in')
-    .to(under, 0.4, {
-      right: 30,
-      ease: Power2.easeInOut
-    }, 'fly_in+=0.4')
-    .to(canvas, 0.4, {
-      opacity: 1,
-      top: '50%'
-    }, 'fly_in+=0.8');
+  mainTl.add(headerTl)
+        .add(mainContentTl)
+        .add([parentLeftTl, parentRightTl])
+        .add(checkBackTl);
 
-  var headerTl = new TimelineMax({ paused: true, onComplete: function() {
-    mainContentTl.play();
-  }});
-
-  headerTl.staggerTo([logo, socialLinks], 0.4, {
-    top: 20
-  }, 0.2);
-
-  headerTl.play();
+  mainTl.play();
 }
 
 
