@@ -10,17 +10,10 @@ function mouseenter(e) {
   const jpl = $('.logo-letter');
 
   var tl = new TimelineMax({ paused: true });
-
-  tl.add('shift_svg')
-    .to(topBar, 0.3, {
-      x: 20,
-    }, 'shift_svg')
-    .to(bottomBar, 0.3, {
-      x: -15
-    }, 'shift_svg')
-    .to(jpl, 0.3, {
-      x: 15
-    }, 'shift_svg');
+  var shiftTopBar = TweenLite.to(topBar, 0.2, { x: 20 });
+  var shiftBottomBar = TweenLite.to(bottomBar, 0.2, { x: -15 });
+  var shiftLetters = TweenLite.to(jpl, 0.2, { x: 15 });
+  tl.add([shiftTopBar, shiftBottomBar, shiftLetters]);
 
   tl.play();
 }
@@ -31,17 +24,10 @@ function mouseleave(e) {
   const jpl = $('.logo-letter');
 
   var tl = new TimelineMax({ paused: true });
-
-  tl.add('shift_svg')
-    .to(topBar, 0.2, {
-      x: 0
-    }, 'shift_svg')
-    .to(bottomBar, 0.3, {
-      x: 0
-    }, 'shift_svg')
-    .to(jpl, 0.3, {
-      x: 0
-    }, 'shift_svg');
+  var unshiftTopBar = TweenLite.to(topBar, 0.2, { x: 0 });
+  var unshiftBottomBar = TweenLite.to(bottomBar, 0.2, { x: 0 });
+  var unshiftLetters = TweenLite.to(jpl, 0.2, { x: 0 });
+  tl.add([unshiftTopBar, unshiftBottomBar, unshiftLetters]);
 
   tl.play();
 }

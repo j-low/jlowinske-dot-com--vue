@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { TweenLite, Power1, Power2, TimelineMax, CSSPlugin } from 'gsap';
+import { TweenMax, TweenLite, Power1, Power2, TimelineMax, TimelineLite, AttrPlugin, CSSPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
