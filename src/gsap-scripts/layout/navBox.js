@@ -3,6 +3,16 @@ export default {
   mouseleave: mouseleave
 }
 
-function mouseenter(e) {}
+function mouseenter(e) {
+  const navBox = $(e.target);
+  const front = $('.' + e.target.classList[0] + ' .nav-box-front');
+  const back = $('.' + e.target.classList[0] + ' .nav-box-back');
+  // debugger;
+}
 
-function mouseleave(e) {}
+function mouseleave(e) {
+  const navBox = $(e.target);
+  const front = $('.' + e.target.classList[0] + ' .nav-box-front');
+  const back = $('.' + e.target.classList[0] + ' .nav-box-back');
+  // debugger;
+}

@@ -7,8 +7,8 @@ const start = 0;
 const end = start + 0.2;
 const ease = Power2.easeInOut;
 
-function mouseenter(ev) {
-  const link = $(ev.target);
+function mouseenter(e) {
+  const link = $(e.target);
   const parent = link[0].parentNode;
 
   $('<div class="pulse-anchor"></div>').appendTo(link);
@@ -20,7 +20,7 @@ function mouseenter(ev) {
       ease: ease
     }, start);
 
-    TweenMax.fromTo(pulse, 0.75, {
+    TweenMax.fromTo(pulse, 0.5, {
       height: 35,
       width: 35,
       opacity: 1
@@ -30,12 +30,12 @@ function mouseenter(ev) {
       opacity: 0,
       ease: ease,
       repeat: -1,
-      repeatDelay: 0.25
+      repeatDelay: 0.75
     });
 }
 
-function mouseleave(ev) {
-  const link = $(ev.target);
+function mouseleave(e) {
+  const link = $(e.target);
   const pulse = $('.pulse-anchor');
 
   pulse.remove();

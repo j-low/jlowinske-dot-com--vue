@@ -1,14 +1,15 @@
 <template>
   <router-link :to="boxRoute" :class="cBoxClass">
     <svg
-      viewBox="0 0 70 70"
+      viewBox="-2 -2 70 70"
+      :class="boxClass"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">
       <title>navSquare</title>
       <g>
         <g>
           <rect class="nav-box-back" width="50" height="50"/>
-          <rect class="nav-box-front nsf-cls-1" x="2" y="2" width="50" height="50"/>
+          <rect class="nav-box-front nsf-cls-1" x="0" y="0" width="50" height="50"/>
         </g>
       </g>
     </svg>
