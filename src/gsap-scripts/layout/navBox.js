@@ -3,6 +3,8 @@ export default {
   mouseleave: mouseleave
 }
 
+const duration = 0.3;
+
 function mouseenter(e) {
   const navBox = $(e.target);
   const front = $('.' + e.target.classList[0] + ' .nav-box-front');
@@ -11,14 +13,20 @@ function mouseenter(e) {
 
   var mainTl = new TimelineLite({ paused: true });
 
-  var shift = TweenLite.to([front, topBar, bottomBar], 0.2, { x: 4, y: 4 });
+  var shiftFront = TweenLite.to([front], duration, { x: 4, y: 4 });
 
   var draw = new TimelineLite();
-  var drawTopBar = TweenLite.to(topBar, 0.2, { attr: { x2: 57 } });
-  var drawBottomBar = TweenLite.to(bottomBar, 0.2, { attr: { x1: -5 } });
+  var drawTopBar = TweenLite.to(topBar, duration, { attr: { x2: 50 } });
+  var drawBottomBar = TweenLite.to(bottomBar, duration, { attr: { x1: 0 } });
   draw.add([drawTopBar, drawBottomBar]);
 
-  mainTl.add([ shift, draw ]);
+  var shiftBars = new TimelineLite();
+  var shiftTopBar = TweenLite.to(topBar, duration, { x: 11, y: 4 });
+  var shiftBottomBar = TweenLite.to(bottomBar, duration, { x: -1, y: 4 })
+  shiftBars.add([shiftTopBar, shiftBottomBar]);
+
+
+  mainTl.add([ shiftFront, shiftBars, draw ]);
 
   mainTl.play();
 }
@@ -31,11 +39,11 @@ function mouseleave(e) {
 
   var mainTl = new TimelineLite({ paused: true });
 
-  var unshift = TweenLite.to([front, topBar, bottomBar], 0.2, { x: 0, y: 0 });
+  var unshift = TweenLite.to([front, topBar, bottomBar], duration, { x: 0, y: 0 });
 
   var undraw = new TimelineLite();
-  var undrawTopBar = TweenLite.to(topBar, 0.2, { attr: { x2: 7 } });
-  var undrawBottomBar = TweenLite.to(bottomBar, 0.2, { attr: { x1: 45 } });
+  var undrawTopBar = TweenLite.to(topBar, duration, { attr: { x2: 0 } });
+  var undrawBottomBar = TweenLite.to(bottomBar, duration, { attr: { x1: 50 } });
   undraw.add([undrawTopBar, undrawBottomBar]);
 
   mainTl.add([ unshift, undraw ]);

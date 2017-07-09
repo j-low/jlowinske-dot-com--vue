@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import anim from 'anim/Layout/socialLink'
+import anim from 'anim/layout/socialLink'
 var methods = {};
 _.assign(methods, anim);
 

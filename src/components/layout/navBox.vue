@@ -10,8 +10,8 @@
         <g>
           <rect class="nav-box-back" width="50" height="50"/>
           <rect class="nav-box-front nsf-cls-1" x="0" y="0" width="50" height="50"/>
-          <line class="nav-box-bar-top nsf-cls-2" x1="7" y1="7" x2="7" y2="7"/>
-          <line class="nav-box-bar-bottom nsf-cls-3" x1="45" y1="12" x2="45" y2="12"/>
+          <line class="nav-box-bar-top nsf-cls-2" x1="0" y1="7" x2="0" y2="7"/>
+          <line class="nav-box-bar-bottom nsf-cls-3" x1="50" y1="12" x2="50" y2="12"/>
         </g>
       </g>
     </svg>
