@@ -4,6 +4,7 @@
     to="/">
     <svg
       id="logo"
+      xmlns="http://www.w3.org/2000/svg"
       viewBox="-20 0 190 150"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">

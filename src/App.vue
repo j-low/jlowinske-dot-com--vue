@@ -96,4 +96,9 @@ html {
     flex-direction: column;
   }
 }
+
+.nav-label {
+  height: 50px;
+  position: fixed;
+}
 </style>

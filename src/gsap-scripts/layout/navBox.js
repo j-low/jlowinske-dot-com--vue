@@ -13,7 +13,7 @@ function mouseenter(e) {
 
   var mainTl = new TimelineLite({ paused: true });
 
-  var shiftFront = TweenLite.to([front], duration, { x: 4, y: 4 });
+  var shiftFront = TweenLite.to(front, duration, { x: 4, y: 4 });
 
   var draw = new TimelineLite();
   var drawTopBar = TweenLite.to(topBar, duration, { attr: { x2: 50 } });

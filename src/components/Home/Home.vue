@@ -9,11 +9,19 @@
       :box-route="box.route"
       >
     </nav-box>
+    <blog-nav-label></blog-nav-label>
+    <d3-nav-label></d3-nav-label>
+    <about-nav-label></about-nav-label>
+    <contact-nav-label></contact-nav-label>
   </section>
 </template>
 
 <script>
 import navBox from 'components/layout/navBox';
+import blogNavLabel from 'components/Home/blogNavLabel';
+import d3NavLabel from 'components/Home/d3NavLabel';
+import aboutNavLabel from 'components/Home/aboutNavLabel';
+import contactNavLabel from 'components/Home/contactNavLabel';
 
 import homeAnim from 'anim/Home/Home';
 var methods = {};
@@ -49,7 +57,12 @@ const navBoxes = [
 export default {
   name: 'home',
   components: {
-    navBox: navBox
+    navBox: navBox,
+    blogNavLabel: blogNavLabel,
+    d3NavLabel: d3NavLabel,
+    aboutNavLabel: aboutNavLabel,
+    contactNavLabel: contactNavLabel
+
   },
   data: function() {
     return {
@@ -78,5 +91,25 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
+  }
+
+  #blog-nav-label {
+    top: calc(40% + 15px);
+    left: calc(35% + 100px);
+  }
+
+  #d3-nav-label {
+    top: calc(40% + 115px);
+    left: calc(35% + 100px);
+  }
+
+  #about-nav-label {
+    top: calc(40% + 215px);
+    left: calc(35% + 100px);
+  }
+
+  #contact-nav-label {
+    top: calc(40% + 315px);
+    left: calc(35% + 100px);
   }
 </style>
