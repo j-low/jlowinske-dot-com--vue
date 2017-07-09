@@ -5,7 +5,6 @@
       :class="boxClass"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">
-      <title>navSquare</title>
       <g>
         <g>
           <rect class="nav-box-back" width="50" height="50"/>

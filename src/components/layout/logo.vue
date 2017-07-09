@@ -8,7 +8,6 @@
       viewBox="-20 0 190 150"
       v-on:mouseenter="mouseenter"
       v-on:mouseleave="mouseleave">
-      <title>logo</title>
       <g>
         <g>
           <rect class="logo-cls-1" x="4" y="4" width="142" height="142"/>

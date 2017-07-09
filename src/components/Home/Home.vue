@@ -59,6 +59,11 @@ export default {
     top: 10%;
     left: 20%;
     width: 60%;
+
+    .letter-name,
+    .letter-job-title {
+      opacity: 0;
+    }
   }
 
   .home-nav-container {
