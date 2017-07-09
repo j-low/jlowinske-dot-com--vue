@@ -40,7 +40,9 @@ export default {
   height: 100px;
 }
 
-.nsf-cls-1, .nsf-cls-2, .nsf-cls-3 {
+.nsf-cls-1,
+.nsf-cls-2,
+.nsf-cls-3 {
   stroke: #333;
   stroke-miterlimit: 10;
 }
@@ -58,72 +60,6 @@ export default {
 }
 
 .nav-box {
-  position: fixed;
-
-  &.nav-blog {
-    top: calc(40%);
-    left: 35%;
-
-    rect {
-      fill: #f145ff;
-
-      &.nav-box-back {
-        opacity: 0.7;
-      }
-    }
-  }
-
-  &.nav-d3 {
-    top: calc(40% + 100px);
-    left: 35%;
-
-    rect {
-      fill: #3effff;
-
-      &.nav-box-back {
-        opacity: 0.7;
-      }
-    }
-  }
-
-  &.nav-about {
-    top: calc(40% + 200px);
-    left: 35%;
-
-    rect {
-      fill: #ffff15;
-
-      &.nav-box-back {
-        opacity: 0.7;
-      }
-    }
-  }
-
-  &.nav-contact {
-    top: calc(40% + 300px);
-    left: 35%;
-
-    rect {
-      fill: #87ff6e;
-
-      &.nav-box-back {
-        opacity: 0.7;
-      }
-    }
-  }
-
-  &.nav-donut {
-    top: calc(40%);
-    left: 35%;
-
-    rect {
-      fill: #ffa02e;
-
-      &.nav-box-back {
-        opacity: 0.7;
-      }
-    }
-  }
 
   &.nav-line-chart {
     top: calc(40% + 100px);

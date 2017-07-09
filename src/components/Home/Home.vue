@@ -1,73 +1,34 @@
 <template>
   <section id="home">
-    <!-- <home-title></home-title> -->
-    <nav-box
-      v-for="box in navBoxes"
-      :key="box.id"
-      :box-class="box.class"
-      :box-title="box.title"
-      :box-route="box.route"
-      >
-    </nav-box>
-    <blog-nav-label></blog-nav-label>
-    <d3-nav-label></d3-nav-label>
-    <about-nav-label></about-nav-label>
-    <contact-nav-label></contact-nav-label>
+    <home-title></home-title>
+    <div class="home-nav-container">
+      <blog-nav></blog-nav>
+      <d3-nav></d3-nav>
+      <about-nav></about-nav>
+      <contact-nav></contact-nav>
+    </div>
   </section>
 </template>
 
 <script>
-import navBox from 'components/layout/navBox';
-import blogNavLabel from 'components/Home/blogNavLabel';
-import d3NavLabel from 'components/Home/d3NavLabel';
-import aboutNavLabel from 'components/Home/aboutNavLabel';
-import contactNavLabel from 'components/Home/contactNavLabel';
+import homeTitle from 'components/Home/homeTitle';
+import blogNav from 'components/Home/nav/blogNav';
+import d3Nav from 'components/Home/nav/d3Nav';
+import aboutNav from 'components/Home/nav/aboutNav';
+import contactNav from 'components/Home/nav/contactNav';
 
 import homeAnim from 'anim/Home/Home';
 var methods = {};
 _.assign(methods, homeAnim);
 
-const navBoxes = [
-  {
-    id: 0,
-    title: 'blog',
-    class: 'nav-blog',
-    route: '/blog'
-  },
-  {
-    id: 1,
-    title: 'd3',
-    class: 'nav-d3',
-    route: '/d3'
-  },
-  {
-    id: 2,
-    title: 'about',
-    class: 'nav-about',
-    route: '/about'
-  },
-  {
-    id: 3,
-    title: 'contact',
-    class: 'nav-contact',
-    route: '/contact'
-  }
-];
-
 export default {
   name: 'home',
   components: {
-    navBox: navBox,
-    blogNavLabel: blogNavLabel,
-    d3NavLabel: d3NavLabel,
-    aboutNavLabel: aboutNavLabel,
-    contactNavLabel: contactNavLabel
-
-  },
-  data: function() {
-    return {
-      navBoxes: navBoxes
-    };
+    homeTitle: homeTitle,
+    blogNav: blogNav,
+    d3Nav: d3Nav,
+    aboutNav: aboutNav,
+    contactNav: contactNav
   },
   methods: methods,
   beforeRouteEnter: function(t, f, next) {
@@ -93,23 +54,42 @@ export default {
     left: 0;
   }
 
-  #blog-nav-label {
-    top: calc(40% + 15px);
-    left: calc(35% + 100px);
+  #home-title {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 60%;
   }
 
-  #d3-nav-label {
-    top: calc(40% + 115px);
-    left: calc(35% + 100px);
+  .home-nav-container {
+    position: absolute;
+    overflow: hidden;
+    height: 65%;
+    width: 100%;
+    bottom: 0;
   }
 
-  #about-nav-label {
-    top: calc(40% + 215px);
-    left: calc(35% + 100px);
+  #blog-nav{
+    position: absolute;
+    top: 0;
+    left: 35%;
   }
 
-  #contact-nav-label {
-    top: calc(40% + 315px);
-    left: calc(35% + 100px);
+  #d3-nav {
+    position: absolute;
+    top: 100px;
+    left: 35%;
+  }
+
+  #about-nav {
+    position: absolute;
+    top: 200px;
+    left: 35%;
+  }
+
+  #contact-nav {
+    position: absolute;
+    top: 300px;
+    left: 35%;
   }
 </style>

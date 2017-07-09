@@ -5,7 +5,7 @@
 
 <script>
 import donut from 'components/D3/donut';
-import lineChart from 'components/D3/line-chart';
+import lineChart from 'components/D3/lineChart';
 
 import d3Anim from 'anim/D3/D3';
 var methods = {};

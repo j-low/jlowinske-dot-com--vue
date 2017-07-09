@@ -22,7 +22,7 @@ function mouseenter(e) {
 
   var shiftBars = new TimelineLite();
   var shiftTopBar = TweenLite.to(topBar, duration, { x: 11, y: 4 });
-  var shiftBottomBar = TweenLite.to(bottomBar, duration, { x: -1, y: 4 })
+  var shiftBottomBar = TweenLite.to(bottomBar, duration, { x: -2, y: 4 })
   shiftBars.add([shiftTopBar, shiftBottomBar]);
 
 

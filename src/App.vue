@@ -97,8 +97,24 @@ html {
   }
 }
 
-.nav-label {
-  height: 50px;
-  position: fixed;
+.nav-container {
+  height: 80px;
+
+  .nav-box {
+    position: absolute;
+    left: 0;
+
+    .nav-box-back {
+      opacity: 0.7;
+    }
+  }
+
+  .nav-label {
+    position: absolute;
+    top: 22%;
+    left: 100px;
+    height: 60%;
+  }
 }
+
 </style>
