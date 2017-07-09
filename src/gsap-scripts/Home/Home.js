@@ -3,7 +3,10 @@ export default {
   beforeRouteLeave: beforeRouteLeave
 };
 
-function beforeRouteEnter() {}
+function beforeRouteEnter() {
+  const name = $('.letter-name');
+  const title = $('.letter-job-title');
+}
 
 function beforeRouteLeave() {
   return new Promise(function(resolve, reject) {
