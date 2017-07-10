@@ -37,7 +37,7 @@ export default {
     });
   },
   beforeRouteLeave: function(t, f, next) {
-    this.beforeRouteLeave()
+    this.beforeRouteLeave(t)
       .then(function(then) {
         next();
       });
@@ -56,9 +56,9 @@ export default {
 
   #home-title {
     position: absolute;
-    top: 10%;
-    left: 20%;
-    width: 60%;
+    top: 7%;
+    width: 100%;
+    height: 20%;
 
     .letter-name,
     .letter-job-title {

@@ -8,10 +8,9 @@ var methods = {};
 
 export default {
   name: 'contact',
-  components: {
-  },
   methods: methods,
   beforeRouteEnter: function(t, f, next) {
+    next();
     // next(function() {
     //  methods.beforeRouteEnter()
     // });
@@ -21,6 +20,7 @@ export default {
     //   .then(function(then) {
     //     next();
     //   });
+    next();
   }
 }
 </script>
