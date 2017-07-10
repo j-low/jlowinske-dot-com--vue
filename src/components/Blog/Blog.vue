@@ -13,7 +13,7 @@ export default {
   methods: methods,
   beforeRouteEnter: function(t, f, next) {
     next(function() {
-      methods.beforeRouteEnter()
+      methods.beforeRouteEnter(t, f)
     });
   },
   beforeRouteLeave: function(t, f, next) {

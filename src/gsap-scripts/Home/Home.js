@@ -1,9 +1,11 @@
+import socialLinkAnim from 'anim/layout/socialLink';
+
 export default {
   beforeRouteEnter: beforeRouteEnter,
   beforeRouteLeave: beforeRouteLeave
 };
 
-function beforeRouteEnter() {
+function beforeRouteEnter(t, f) {
   const name = $('.letter-name');
   const title = $('.letter-job-title');
   const navs = ['#blog-nav', '#d3-nav', '#about-nav', '#contact-nav'];
@@ -12,6 +14,7 @@ function beforeRouteEnter() {
   var navsTl = new TimelineLite();
   var nameTl = new TimelineLite();
   var titleTl = new TimelineLite();
+  var socialLinkTl = socialLinkAnim.getSocialLinkTimeline(t, f);
 
   // navs anim
   _.each(navs, function(n) {
@@ -69,10 +72,10 @@ function beforeRouteEnter() {
   titleTl.add([titleFadeAndShift, titleKerningTweens]);
 
   mainTl
+    .add(socialLinkTl)
     .add(nameTl)
     .add([titleTl, navsTl]);
 
-  // navsTl.play();
   mainTl.play();
 }
 

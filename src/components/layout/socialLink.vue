@@ -42,6 +42,7 @@ export default {
 .social-link-anchor {
   height: 35px;
   width: 35px;
+  z-index: 1;
 }
 
 .social-link {

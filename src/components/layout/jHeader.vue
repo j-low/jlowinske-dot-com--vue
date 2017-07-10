@@ -16,7 +16,10 @@
 import socialLink from 'components/layout/socialLink';
 import logo from 'components/layout/logo';
 
+import getLayoutOrientation from 'util/getLayoutOrientation';
+
 var methods = {};
+_.assign(methods, getLayoutOrientation);
 
 const socialLinks = [
   {

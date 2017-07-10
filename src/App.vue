@@ -22,30 +22,13 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import jHeader from 'components/layout/jHeader';
 import jFooter from 'components/layout/jFooter';
 
-var methods = {};
-
 export default {
   name: 'app',
   components: {
     jHeader: jHeader,
     jFooter: jFooter
-  },
-  data: function() {
-    return {
-      heading: '',
-    };
-  },
-  computed: {
-  },
-  mounted: mounted,
-  watch: {
-    $route: function changeRouteCallback(r) {}
-  },
-  methods: methods
+  }
 };
-
-function mounted() {
-}
 
 </script>
 
@@ -54,7 +37,7 @@ function mounted() {
 @import '~scss/mixins';
 
 html {
-  @extend .noselect;
+  // @extend .noselect;
 }
 
 #app, #app-container, #bigger-screen {
