@@ -16,7 +16,7 @@ function mounted() {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 svg {
   font: 10px sans-serif;

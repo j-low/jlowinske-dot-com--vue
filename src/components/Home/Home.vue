@@ -77,24 +77,24 @@ export default {
   #blog-nav{
     position: absolute;
     top: 0;
-    left: 35%;
+    left: 40%;
   }
 
   #d3-nav {
     position: absolute;
     top: 100px;
-    left: 35%;
+    left: 40%;
   }
 
   #about-nav {
     position: absolute;
     top: 200px;
-    left: 35%;
+    left: 40%;
   }
 
   #contact-nav {
     position: absolute;
     top: 300px;
-    left: 35%;
+    left: 40%;
   }
 </style>
