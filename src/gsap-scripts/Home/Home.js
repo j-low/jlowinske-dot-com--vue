@@ -99,7 +99,7 @@ function beforeRouteLeave(to) {
 
     // not selected anim
     _.eachRight(notSelected, function(ns) {
-      let tween = TweenLite.to(ns, 0.2, { top: '+=200', opacity: 0 });
+      let tween = TweenLite.to(ns, 0.1, { top: '+=200', opacity: 0 });
       notSelectedTl.add(tween);
     });
 
