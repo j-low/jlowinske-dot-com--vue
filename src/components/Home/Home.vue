@@ -33,11 +33,11 @@ export default {
   methods: methods,
   beforeRouteEnter: function(t, f, next) {
     next(function() {
-      methods.beforeRouteEnter()
+      methods.beforeRouteEnter(t, f)
     });
   },
   beforeRouteLeave: function(t, f, next) {
-    this.beforeRouteLeave()
+    this.beforeRouteLeave(t)
       .then(function(then) {
         next();
       });
@@ -56,9 +56,14 @@ export default {
 
   #home-title {
     position: absolute;
-    top: 10%;
-    left: 20%;
-    width: 60%;
+    top: 7%;
+    width: 100%;
+    height: 20%;
+
+    .letter-name,
+    .letter-job-title {
+      opacity: 0;
+    }
   }
 
   .home-nav-container {
@@ -72,24 +77,24 @@ export default {
   #blog-nav{
     position: absolute;
     top: 0;
-    left: 35%;
+    left: 40%;
   }
 
   #d3-nav {
     position: absolute;
     top: 100px;
-    left: 35%;
+    left: 40%;
   }
 
   #about-nav {
     position: absolute;
     top: 200px;
-    left: 35%;
+    left: 40%;
   }
 
   #contact-nav {
     position: absolute;
     top: 300px;
-    left: 35%;
+    left: 40%;
   }
 </style>

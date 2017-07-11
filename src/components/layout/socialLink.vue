@@ -37,12 +37,12 @@ export default {
 .pulse-anchor {
   @extend .pulse-anchor-default;
   border: 2px solid #333333;
-  // transform-origin: center center;
 }
 
 .social-link-anchor {
   height: 35px;
   width: 35px;
+  z-index: 1;
 }
 
 .social-link {

@@ -1,6 +1,9 @@
+import getLayoutOrientation from 'util/getLayoutOrientation';
+
 export default {
   mouseenter: mouseenter,
-  mouseleave: mouseleave
+  mouseleave: mouseleave,
+  getSocialLinkTimeline: getSocialLinkTimeline
 }
 
 const start = 0;
@@ -51,4 +54,56 @@ function mouseleave(e) {
       borderColor: '#333333',
       ease: ease
     }, start);
+}
+
+function getSocialLinkTimeline(to, from) {
+  const oTo = getLayoutOrientation.getLayoutOrientation(to);
+  const oFrom = getLayoutOrientation.getLayoutOrientation(from);
+  var tl;
+
+  if (oFrom === 'v' && oTo === 'h') {
+    tl = verticalToHorizontalTimeline();
+  } else if (oFrom === 'h' && oTo === 'v') {
+    tl = horizontalToVerticalTimeline();
+  } else {
+    tl = emptyTimeline();
+  }
+
+  return tl;
+}
+
+function horizontalToVerticalTimeline() {
+  const links = $('.social-link-anchor.linkedin, .social-link-anchor.github, .social-link-anchor.instagram, .social-link-anchor.twitter, .social-link-anchor.envelope-o').toArray();
+  const linksCount = links.length;
+  var tl = new TimelineLite();
+
+  for (var i = 0; i < linksCount; i++) {
+    let drop = links.pop();
+    let dropTween = TweenLite.to(drop, 0.15, { top: 410 - (95 * i), right: 65 });
+    let shiftTween = TweenLite.to(links, 0.15, { right: '-=95' });
+    let tweens = [dropTween, shiftTween];
+    tl.add(tweens);
+  }
+
+  return tl;
+}
+
+function verticalToHorizontalTimeline() {
+  const links = $('.social-link-anchor.linkedin, .social-link-anchor.github, .social-link-anchor.instagram, .social-link-anchor.twitter, .social-link-anchor.envelope-o').toArray().reverse();
+  const linksCount = links.length;
+  var tl = new TimelineLite();
+
+  for (var i = 0; i < linksCount; i++) {
+    let up = links.pop();
+    let upTween = TweenLite.to(up, 0.15, { top: 20, right: 445 - (95 * i) });
+    let shiftTween = TweenLite.to(links, 0.15, { top: '-=95' });
+    let tweens = [upTween, shiftTween];
+    tl.add(tweens);
+  }
+
+  return tl;
+}
+
+function emptyTimeline() {
+  return new TimelineLite();
 }

@@ -10,27 +10,27 @@ Vue.use(Router);
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
   },
   {
     path: '/blog',
-    name: 'Blog',
+    name: 'blog',
     component: Blog
   },
   {
     path: '/d3',
-    name: 'D3.js',
+    name: 'd3',
     component: D3
   },
   {
     path: '/about',
-    name: 'About',
+    name: 'about',
     component: About
   },
   {
     path: '/contact',
-    name: 'Contact',
+    name: 'contact',
     component: Contact
   },
   {

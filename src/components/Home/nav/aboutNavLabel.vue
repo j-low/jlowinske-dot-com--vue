@@ -4,7 +4,6 @@
     class="nav-label"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 148.11 46.21">
-    <title>about</title>
     <g>
       <g>
         <path class="about-nav-label-cls-1 letter letter-1" d="M23.15,0l6.77,45.53H17.82l-.64-8.18H13l-.71,8.18H0L6,0ZM16.88,29.28q-.9-7.74-1.8-19.12Q13.26,23.23,12.8,29.28Z"/>
