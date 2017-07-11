@@ -5,7 +5,7 @@ export default {
 
 function enterTimeline() {
   const title = $('#blog-title .letter');
-  
+
   var tl = new TimelineLite();
   var titleFade = TweenLite.fromTo(title, 0.5, { opacity: 0 }, { opacity: 1 });
   var titleKerningTweensUp = [];

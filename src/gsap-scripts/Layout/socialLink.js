@@ -79,8 +79,8 @@ function horizontalToVerticalTimeline() {
 
   for (var i = 0; i < linksCount; i++) {
     let drop = links.pop();
-    let dropTween = TweenLite.to(drop, 0.1, { top: 410 - (95 * i), right: 65 });
-    let shiftTween = TweenLite.to(links, 0.1, { right: '-=95' });
+    let dropTween = TweenLite.to(drop, 0.15, { top: 410 - (95 * i), right: 65 });
+    let shiftTween = TweenLite.to(links, 0.15, { right: '-=95' });
     let tweens = [dropTween, shiftTween];
     tl.add(tweens);
   }
@@ -95,8 +95,8 @@ function verticalToHorizontalTimeline() {
 
   for (var i = 0; i < linksCount; i++) {
     let up = links.pop();
-    let upTween = TweenLite.to(up, 0.1, { top: 20, right: 445 - (95 * i) });
-    let shiftTween = TweenLite.to(links, 0.1, { top: '-=95' });
+    let upTween = TweenLite.to(up, 0.15, { top: 20, right: 445 - (95 * i) });
+    let shiftTween = TweenLite.to(links, 0.15, { top: '-=95' });
     let tweens = [upTween, shiftTween];
     tl.add(tweens);
   }
