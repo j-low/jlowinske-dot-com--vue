@@ -72,8 +72,7 @@ function beforeRouteEnter(t, f) {
   titleTl.add([titleFadeAndShift, titleKerningTweens]);
 
   mainTl
-    .add(socialLinkTl)
-    .add(nameTl)
+    .add([nameTl, socialLinkTl])
     .add([titleTl, navsTl]);
 
   mainTl.play();

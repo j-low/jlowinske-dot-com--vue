@@ -73,16 +73,20 @@ function getSocialLinkTimeline(to, from) {
 }
 
 function horizontalToVerticalTimeline() {
-  const links = $('.social-link-anchor.linkedin, .social-link-anchor.github, .social-link-anchor.instagram, .social-link-anchor.twitter, .social-link-anchor.envelope-o').toArray();
+  const links = $('.social-link-anchor.linkedin, .social-link-anchor.github, .social-link-anchor.instagram, .social-link-anchor.twitter, .social-link-anchor.envelope-o')
+    .toArray();
   const linksCount = links.length;
   var tl = new TimelineLite();
+  var duration = 0.18;
 
   for (var i = 0; i < linksCount; i++) {
     let drop = links.pop();
-    let dropTween = TweenLite.to(drop, 0.15, { top: 410 - (95 * i), right: 65 });
-    let shiftTween = TweenLite.to(links, 0.15, { right: '-=95' });
+    let dropTween = TweenLite.to(drop, duration, { top: 410 - (95 * i), right: 65 });
+    let shiftTween = TweenLite.to(links, duration, { right: '-=95' });
     let tweens = [dropTween, shiftTween];
     tl.add(tweens);
+
+    duration = Number((duration - 0.03).toFixed(2));
   }
 
   return tl;
@@ -92,13 +96,16 @@ function verticalToHorizontalTimeline() {
   const links = $('.social-link-anchor.linkedin, .social-link-anchor.github, .social-link-anchor.instagram, .social-link-anchor.twitter, .social-link-anchor.envelope-o').toArray().reverse();
   const linksCount = links.length;
   var tl = new TimelineLite();
+  var duration = 0.18;
 
   for (var i = 0; i < linksCount; i++) {
     let up = links.pop();
-    let upTween = TweenLite.to(up, 0.15, { top: 20, right: 445 - (95 * i) });
-    let shiftTween = TweenLite.to(links, 0.15, { top: '-=95' });
+    let upTween = TweenLite.to(up, duration, { top: 20, right: 445 - (95 * i) });
+    let shiftTween = TweenLite.to(links, duration, { top: '-=95' });
     let tweens = [upTween, shiftTween];
     tl.add(tweens);
+
+    duration = Number((duration - 0.04).toFixed(2));
   }
 
   return tl;

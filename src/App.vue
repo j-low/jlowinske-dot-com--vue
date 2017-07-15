@@ -68,17 +68,17 @@ html {
   color: #ffffff;
 }
 
-@media(max-width: 660px) {
-  #app-container {
-    display: none;
-  }
-
-  #bigger-screen {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-}
+// @media(max-width: 660px) {
+//   #app-container {
+//     display: none;
+//   }
+//
+//   #bigger-screen {
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//   }
+// }
 
 .nav-container {
   height: 80px;
