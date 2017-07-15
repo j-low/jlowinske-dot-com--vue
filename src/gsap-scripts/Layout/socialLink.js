@@ -86,7 +86,7 @@ function horizontalToVerticalTimeline() {
     let tweens = [dropTween, shiftTween];
     tl.add(tweens);
 
-    duration = Number((duration - 0.03).toFixed(2));
+    duration -= 0.03;
   }
 
   return tl;
@@ -105,7 +105,7 @@ function verticalToHorizontalTimeline() {
     let tweens = [upTween, shiftTween];
     tl.add(tweens);
 
-    duration = Number((duration - 0.04).toFixed(2));
+    duration -= 0.03;
   }
 
   return tl;
