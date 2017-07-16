@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { TweenMax, TweenLite, Power1, Power2, TimelineMax, TimelineLite, AttrPlugin, CSSPlugin } from 'gsap';
+import { TweenMax, TweenLite, Power1, Power2, TimelineMax, TimelineLite, AttrPlugin, CSSPlugin, DrawSVGPlugin } from 'gsap';
 import Draggable from 'gsap/Draggable';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
@@ -35,10 +35,6 @@ export default {
 <style lang="scss">
 @import '~scss/classes';
 @import '~scss/mixins';
-
-html {
-  // @extend .noselect;
-}
 
 #app, #app-container, #bigger-screen {
   position: absolute;

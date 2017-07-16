@@ -1,9 +1,10 @@
 <template>
   <router-link to="/d3" class="nav-box-donut">
     <svg
-      i
       viewBox="-4 -2 70 70"
-      class="nav-donut">
+      class="nav-donut"
+      v-on:mouseenter="mouseenter"
+      v-on:mouseleave="mouseleave">
       <g>
         <g>
           <rect class="nav-box-back" width="50" height="50"/>
@@ -17,7 +18,9 @@
 </template>
 
 <script>
+import anim from 'anim/D3/nav/donutNavBox';
 var methods = {};
+_.assign(methods, anim);
 
 export default {
   name: 'donutNavBox',
