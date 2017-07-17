@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Home from '@/components/Home/Home';
 import Blog from '@/components/Blog/Blog';
 import D3 from '@/components/D3/D3';
+import donut from '@/components/D3/donut/donut';
+import lineChart from '@/components/D3/line-chart/lineChart';
 import About from '@/components/About/About';
 import Contact from '@/components/Contact/Contact';
 
@@ -22,6 +24,16 @@ const routes = [
     path: '/d3',
     name: 'd3',
     component: D3
+  },
+  {
+    path: '/d3/donut',
+    name: 'donut',
+    component: donut
+  },
+  {
+    path: '/d3/line-chart',
+    name: 'line-chart',
+    component: lineChart
   },
   {
     path: '/about',

@@ -12,7 +12,7 @@ export default {
 }
 
 function mounted() {
-  lineChart.init();
+  // lineChart.init();
 }
 </script>
 

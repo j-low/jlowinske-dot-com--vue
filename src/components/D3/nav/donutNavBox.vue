@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/d3" class="nav-box-donut">
+  <router-link to="/d3/donut" class="nav-box-donut">
     <svg
       id="donut-nav-box"
       viewBox="-4 -2 70 70"

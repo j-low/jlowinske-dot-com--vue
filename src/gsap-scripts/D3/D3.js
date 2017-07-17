@@ -10,22 +10,27 @@ export default {
 
 function beforeRouteEnter(t, f) {
   var mainTl = new TimelineLite({ paused: true });
+  var phTl = pHeader.enterTimeline();
+  var shTl = sHeader.enterTimeline();
   var navsTl = navs.enterTimeline();
   var socialLinkTl = sLinks.getSocialLinkTimeline(t, f);
 
   mainTl
-    .add([navsTl, socialLinkTl]);
+    .add([phTl, shTl, navsTl, socialLinkTl]);
 
   mainTl.play();
 }
 
-function beforeRouteLeave() {
+function beforeRouteLeave(to) {
   return new Promise(function(resolve, reject) {
     var mainTl = new TimelineLite({ paused: true, onComplete: function() { resolve(true); } });
-    var navsTl = navs.leaveTimeline();
+    var phTl = pHeader.leaveTimeline();
+    var shTl = sHeader.leaveTimeline();
+    var navsTl = navs.leaveTimeline(to);
 
     mainTl
       .add(navsTl)
+      .add([phTl, shTl]);
 
     mainTl.play();
   });

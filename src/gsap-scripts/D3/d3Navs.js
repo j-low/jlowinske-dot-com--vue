@@ -1,3 +1,5 @@
+import sns from 'anim/D3/d3sns';
+
 export default {
   enterTimeline: enterTimeline,
   leaveTimeline: leaveTimeline
@@ -24,10 +26,14 @@ function enterTimeline() {
   return tl;
 }
 
-function leaveTimeline() {
+function leaveTimeline(to) {
   const navs = ['#donut-nav', '#line-chart-nav'];
   const symbols = $('.donut-symbol-main, .donut-symbol-slice, .line-chart-symbol');
   var tl = new TimelineLite();
+  var snsTl = sns.snsTimeline(to);
+
+  tl
+    .add(snsTl);
 
   return tl;
 }
