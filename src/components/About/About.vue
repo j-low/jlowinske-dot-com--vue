@@ -71,9 +71,5 @@ export default {
   width: 31px;
   top: 9%;
   left: 53px;
-
-  .letter {
-    // opacity: 0;
-  }
 }
 </style>
