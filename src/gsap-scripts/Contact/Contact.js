@@ -10,11 +10,11 @@ export default {
 function beforeRouteEnter(t, f) {
   var mainTl = new TimelineLite({ paused: true });
   var titleTl = title.enterTimeline();
-  var backgroundTl = bg.enterTimeline();
+  var bgTl = bg.enterTimeline();
   var socialLinkTl = slinks.getSocialLinkTimeline(t, f);
 
   mainTl
-    .add([backgroundTl, socialLinkTl])
+    .add([bgTl, socialLinkTl])
     .add(titleTl);
 
   mainTl.play();
@@ -24,10 +24,10 @@ function beforeRouteLeave() {
   return new Promise(function(resolve, reject) {
     var mainTl = new TimelineLite({ paused: true, onComplete: function() { resolve(true); } });
     var titleTl = title.leaveTimeline();
-    var backgroundTl = bg.leaveTimeline();
+    var bgTl = bg.leaveTimeline();
 
     mainTl
-      .add([titleTl, backgroundTl]);
+      .add([titleTl, bgTl]);
 
     mainTl.play();
   });

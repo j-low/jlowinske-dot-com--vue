@@ -29,8 +29,8 @@ function enterTimeline() {
 function leaveTimeline() {
   const title = $('#contact-title .letter');
   var tl = new TimelineLite();
-  var fadeOut = TweenLite.to(title, durationLeave, { opacity: 0 });
   var kerning = TweenLite.to(title, durationLeave, { x: 0 });
+  var fadeOut = TweenLite.to(title, durationLeave, { opacity: 0 });
 
   tl
     .add([fadeOut, kerning]);

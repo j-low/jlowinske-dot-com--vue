@@ -3,11 +3,14 @@ export default {
   leaveTimeline: leaveTimeline
 }
 
+const durationEnter = 0.5;
+const durationLeave = 0.3;
+
 function enterTimeline() {
   const title = $('#about-title .letter');
 
   var tl = new TimelineLite();
-  var titleFade = TweenLite.fromTo(title, 0.5, { opacity: 0 }, { opacity: 1 });
+  var titleFade = TweenLite.fromTo(title, durationEnter, { opacity: 0 }, { opacity: 1 });
   var titleKerningTweensUp = [];
   var titleKerningTweensDown = [];
   var titleKerningShift = 20;
@@ -16,10 +19,10 @@ function enterTimeline() {
 
   for(var l = upIndex, r = downIndex; l >= -1, r < title.length; l--, r++) {
     let upLetter = title[l];
-    let upTween = TweenLite.fromTo(upLetter, 0.5, { y: -(titleKerningShift) }, { y: 0, ease: Power2.easeInOut  });
+    let upTween = TweenLite.fromTo(upLetter, durationEnter, { y: -(titleKerningShift) }, { y: 0, ease: Power2.easeInOut  });
 
     let downLetter = title[r];
-    let downTween = TweenLite.fromTo(downLetter, 0.5, { y: titleKerningShift }, { y: 0, ease: Power2.easeInOut });
+    let downTween = TweenLite.fromTo(downLetter, durationEnter, { y: titleKerningShift }, { y: 0, ease: Power2.easeInOut });
 
     titleKerningTweensUp.push(upTween);
     titleKerningTweensDown.push(downTween);
@@ -27,7 +30,8 @@ function enterTimeline() {
     titleKerningShift += 20;
   }
 
-  tl.add([titleFade, titleKerningTweensUp, titleKerningTweensDown]);
+  tl
+    .add([titleFade, titleKerningTweensUp, titleKerningTweensDown]);
 
   return tl;
 }
@@ -36,7 +40,7 @@ function leaveTimeline() {
   const title = $('#about-title .letter');
 
   var tl = new TimelineLite();
-  var titleFade = TweenLite.fromTo(title, 0.2, { opacity: 1 }, { opacity: 0 });
+  var titleFade = TweenLite.fromTo(title, durationLeave, { opacity: 1 }, { opacity: 0 });
   var titleKerningTweensUp = [];
   var titleKerningTweensDown = [];
   var titleKerningShift = 20;
@@ -45,10 +49,10 @@ function leaveTimeline() {
 
   for(var l = upIndex, r = downIndex; l >= -1, r < title.length; l--, r++) {
     let upLetter = title[l];
-    let upTween = TweenLite.fromTo(upLetter, 0.2, { y: 0 }, { y: -(titleKerningShift), ease: Power2.easeInOut  });
+    let upTween = TweenLite.fromTo(upLetter, durationLeave, { y: 0 }, { y: -(titleKerningShift), ease: Power2.easeInOut  });
 
     let downLetter = title[r];
-    let downTween = TweenLite.fromTo(downLetter, 0.2, { y: 0 }, { y: titleKerningShift, ease: Power2.easeInOut });
+    let downTween = TweenLite.fromTo(downLetter, durationLeave, { y: 0 }, { y: titleKerningShift, ease: Power2.easeInOut });
 
     titleKerningTweensUp.push(upTween);
     titleKerningTweensDown.push(downTween);
@@ -56,7 +60,8 @@ function leaveTimeline() {
     titleKerningShift += 20;
   }
 
-  tl.add([titleFade, titleKerningTweensUp, titleKerningTweensDown]);
+  tl
+    .add([titleFade, titleKerningTweensUp, titleKerningTweensDown]);
 
   return tl;
 }

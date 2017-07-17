@@ -29,7 +29,6 @@ export default {
       .then(function(then) {
         next();
       });
-    next();
   }
 }
 </script>
