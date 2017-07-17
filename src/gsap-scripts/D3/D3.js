@@ -1,4 +1,7 @@
-import socialLinkAnim from 'anim/layout/socialLink';
+import pHeader from 'anim/D3/d3primaryHeader';
+import sHeader from 'anim/D3/d3SecondaryHeader';
+import navs from 'anim/D3/d3Navs';
+import sLinks from 'anim/layout/socialLink';
 
 export default {
   beforeRouteEnter: beforeRouteEnter,
@@ -7,15 +10,28 @@ export default {
 
 function beforeRouteEnter(t, f) {
   var mainTl = new TimelineLite({ paused: true });
-  var socialLinkTl = socialLinkAnim.getSocialLinkTimeline(t, f);
+  var phTl = pHeader.enterTimeline();
+  var shTl = sHeader.enterTimeline();
+  var navsTl = navs.enterTimeline();
+  var socialLinkTl = sLinks.getSocialLinkTimeline(t, f);
 
-  mainTl.add(socialLinkTl);
+  mainTl
+    .add([phTl, shTl, navsTl, socialLinkTl]);
 
   mainTl.play();
 }
 
-function beforeRouteLeave() {
+function beforeRouteLeave(to) {
   return new Promise(function(resolve, reject) {
-    resolve(true);
+    var mainTl = new TimelineLite({ paused: true, onComplete: function() { resolve(true); } });
+    var phTl = pHeader.leaveTimeline();
+    var shTl = sHeader.leaveTimeline();
+    var navsTl = navs.leaveTimeline(to);
+
+    mainTl
+      .add(navsTl)
+      .add([phTl, shTl]);
+
+    mainTl.play();
   });
 }

@@ -11,7 +11,7 @@ export default {
 }
 
 function mounted() {
-  donut.init();
+  // donut.init();
 }
 </script>
 

@@ -60,19 +60,6 @@ export default {
 
 .nav-box {
 
-  &.nav-line-chart {
-    top: calc(40% + 100px);
-    left: 35%;
-
-    rect {
-      fill: #31ffe1;
-
-      &.nav-box-back {
-        opacity: 0.7;
-      }
-    }
-  }
-
   &.nav-blog-post {
     left: 10%;
 
