@@ -3,13 +3,16 @@ export default {
   leaveTimeline: leaveTimeline
 }
 
+const durationEnter = 0.4;
+const durationLeave = 0.3;
+
 function enterTimeline() {
   const over = $('#about .over');
   const under = $('#about .under');
 
   var tl = new TimelineLite();
-  var overTween = TweenLite.to(over, 0.4, { top: 30, ease: Power2.easeOut });
-  var underTween = TweenLite.to(under, 0.4, { bottom: 30, ease: Power2.easeOut });
+  var overTween = TweenLite.to(over, durationEnter, { top: 30, ease: Power2.easeOut });
+  var underTween = TweenLite.to(under, durationEnter, { bottom: 30, ease: Power2.easeOut });
 
   tl
     .add(overTween)
@@ -23,8 +26,8 @@ function leaveTimeline() {
   const under = $('#about .under');
 
   var tl = new TimelineLite();
-  var overTween = TweenLite.to(over, 0.35, { top: '100%', ease: Power2.easeOut });
-  var underTween = TweenLite.to(under, 0.35, { bottom: '100%', ease: Power2.easeOut });
+  var overTween = TweenLite.to(over, durationLeave, { top: '100%', ease: Power2.easeOut });
+  var underTween = TweenLite.to(under, durationLeave, { bottom: '100%', ease: Power2.easeOut });
 
   tl
     .add(underTween)
