@@ -58,7 +58,7 @@ export default {
     position: absolute;
     top: 7%;
     width: 100%;
-    height: 20%;
+    height: 150px;
 
     .letter-name,
     .letter-job-title {

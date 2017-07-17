@@ -6,29 +6,29 @@ export default {
 const duration = 0.3;
 
 function mouseenter(e) {
-  const navBox = $(e.target);
-  const front = $('.' + e.target.classList[0] + ' .nav-box-front');
-  const line = $('.line-chart-line');
+  const front = $('#line-chart-nav-box .nav-box-front');
+  const line = $('.line-chart-symbol');
 
   var mainTl = new TimelineLite({ paused: true });
 
   var shiftFront = TweenLite.to([front, line], duration, { x: 4, y: 4 });
+  var drawLine = TweenLite.fromTo(line, duration, { drawSVG: 0 }, { drawSVG: 100 });
 
-  mainTl.add(shiftFront);
+  mainTl.add([shiftFront, drawLine]);
 
   mainTl.play();
 }
 
 function mouseleave(e) {
-  const navBox = $(e.target);
-  const front = $('.' + e.target.classList[0] + ' .nav-box-front');
-  const line = $('.line-chart-line');
+  const front = $('#line-chart-nav-box .nav-box-front');
+  const line = $('.line-chart-symbol');
 
   var mainTl = new TimelineLite({ paused: true });
 
   var unshift = TweenLite.to([front, line], duration, { x: 0, y: 0 });
+  var undrawLine = TweenLite.fromTo(line, duration, { drawSVG: 100 }, { drawSVG: 0 });
 
-  mainTl.add(unshift);
+  mainTl.add([unshift, undrawLine]);
 
   mainTl.play();
 }

@@ -31,7 +31,7 @@ export default {
     });
   },
   beforeRouteLeave: function(t, f, next) {
-    this.beforeRouteLeave()
+    this.beforeRouteLeave(t)
       .then(function(then) {
         next();
       });
@@ -51,9 +51,9 @@ export default {
 
 #d3-title {
   position: absolute;
-  top: 15%;
+  top: 12%;
   width: 100%;
-  height: 15%;
+  height: 100px;
 
   .letter-primary,
   .letter-secondary {
