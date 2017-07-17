@@ -3,18 +3,20 @@ export default {
 }
 
 function snsTimeline(to) {
-  const selectedNotSelected = getSelectedNotSelected(to);
-  const selectedBox = $(selectedNotSelected.selected + ' .nav-box');
-  const selectedLabel = $(selectedNotSelected.selected + ' .nav-label');
-  const notSelected = $(selectedNotSelected.notSelected);
+  const sns = getSelectedNotSelected(to);
+  const selectedBox = $(sns.selected + ' .nav-box');
+  const selectedLabel = $(sns.selected + ' .nav-label');
+  const notSelected = $(sns.notSelected);
   var mainTl = new TimelineLite();
   var selectedTl = new TimelineLite();
   var notSelectedTl = new TimelineLite();
 
   // selected anim
-  var boxLeft = TweenLite.to(selectedBox, 0.2, { left: '-=100', opacity: 0 });
-  var labelRight = TweenLite.to(selectedLabel, 0.2, { left: '+=100', opacity: 0 });
-  selectedTl.add([boxLeft, labelRight]);
+  if (sns.selected) {
+    var boxLeft = TweenLite.to(selectedBox, 0.2, { left: '-=100', opacity: 0 });
+    var labelRight = TweenLite.to(selectedLabel, 0.2, { left: '+=100', opacity: 0 });
+    selectedTl.add([boxLeft, labelRight]);
+  }
 
   // not selected anim
   _.eachRight(notSelected, function(ns) {
