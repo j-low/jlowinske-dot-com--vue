@@ -1,6 +1,6 @@
-import blogTitle from 'anim/Blog/blogTitle';
-import blogBackground from 'anim/Blog/blogBackground';
-import socialLinkAnim from 'anim/layout/socialLink';
+import title from 'anim/Blog/blogTitle';
+import bg from 'anim/layout/bgOverUnder';
+import links from 'anim/layout/socialLink';
 
 export default {
   beforeRouteEnter: beforeRouteEnter,
@@ -8,23 +8,26 @@ export default {
 }
 
 function beforeRouteEnter(t, f) {
+  console.log('TO: ', t);
   var mainTl = new TimelineLite({ paused: true });
-  var titleTl = blogTitle.enterTimeline();
-  var backgroundTl = blogBackground.enterTimeline();
-  var socialLinkTl = socialLinkAnim.getSocialLinkTimeline(t, f);
+  var titleTl = title.enterTimeline();
+  var bgTl = bg.enterTimeline(t);
+  var linksTl = links.getSocialLinkTimeline(t, f);
 
-  mainTl.add([titleTl, backgroundTl, socialLinkTl]);
+  mainTl
+    .add([titleTl, bgTl, linksTl]);
 
   mainTl.play();
 }
 
-function beforeRouteLeave() {
+function beforeRouteLeave(f) {
   return new Promise(function(resolve, reject) {
     var mainTl = new TimelineLite({ paused: true, onComplete: function() { resolve(true); } });
-    var titleTl = blogTitle.leaveTimeline();
-    var backgroundTl = blogBackground.leaveTimeline();
+    var titleTl = title.leaveTimeline();
+    var bgTl = bg.leaveTimeline(f);
 
-    mainTl.add([titleTl, backgroundTl]);
+    mainTl
+      .add([titleTl, bgTl]);
 
     mainTl.play();
   });

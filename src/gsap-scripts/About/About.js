@@ -1,6 +1,6 @@
 import title from 'anim/About/aboutTitle';
-import bg from 'anim/About/aboutBackground';
-import slinks from 'anim/layout/socialLink';
+import bg from 'anim/layout/bgOverUnder';
+import links from 'anim/layout/socialLink';
 
 export default {
   beforeRouteEnter: beforeRouteEnter,
@@ -10,20 +10,20 @@ export default {
 function beforeRouteEnter(t, f) {
   var mainTl = new TimelineLite({ paused: true });
   var titleTl = title.enterTimeline();
-  var bgTl = bg.enterTimeline();
-  var socialLinkTl = slinks.getSocialLinkTimeline(t, f);
+  var bgTl = bg.enterTimeline(t);
+  var linksTl = links.getSocialLinkTimeline(t, f);
 
   mainTl
-    .add([titleTl, bgTl, socialLinkTl]);
+    .add([titleTl, bgTl, linksTl]);
 
   mainTl.play();
 }
 
-function beforeRouteLeave() {
+function beforeRouteLeave(f) {
   return new Promise(function(resolve, reject) {
     var mainTl = new TimelineLite({ paused: true, onComplete: function() { resolve(true); } });
     var titleTl = title.leaveTimeline();
-    var bgTl = bg.leaveTimeline();
+    var bgTl = bg.leaveTimeline(f);
 
     mainTl
       .add([titleTl, bgTl]);

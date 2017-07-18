@@ -52,7 +52,7 @@ function init() {
       return "rotate(" + metaState.degrees + ")";
     });
 
-    metaState.degrees += 0.06;
+    metaState.degrees += 0.1;
   }
 
   // transition
