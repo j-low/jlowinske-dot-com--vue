@@ -53,7 +53,7 @@ function mounted() {
   .under,
   .over {
     position: absolute;
-    background: #06c5ff;
+    background: #31ffe1;
     opacity: 0.4;
   }
 
