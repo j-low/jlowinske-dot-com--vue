@@ -1,7 +1,6 @@
 <template>
   <div id="donut">
-    <div class="under"></div>
-    <div class="over"></div>
+    <bg></bg>
     <donut-title></donut-title>
     <div class="content">
       <div id="donut-container"></div>
@@ -10,6 +9,7 @@
 </template>
 
 <script>
+import bg from 'components/layout/bgOverUnder';
 import donutTitle from 'components/D3/donut/donutTitle';
 
 import donut from './donutScript';
@@ -22,6 +22,7 @@ export default {
   methods: methods,
   mounted: mounted,
   components: {
+    bg: bg,
     donutTitle: donutTitle
   },
   beforeRouteEnter: function(t, f, next) {
@@ -30,7 +31,7 @@ export default {
     });
   },
   beforeRouteLeave: function(t, f, next) {
-    this.beforeRouteLeave()
+    this.beforeRouteLeave(f)
       .then(function(then) {
         next();
       });
@@ -51,13 +52,6 @@ function mounted() {
   bottom: 0;
   left: 0;
 
-  .under,
-  .over {
-    position: absolute;
-    background: #ffa02e;
-    opacity: 0.4;
-  }
-
   .content {
     background: none;
     position: absolute;
@@ -65,21 +59,6 @@ function mounted() {
     right: 60px;
     bottom: 120px;
     left: 60px;
-  }
-
-  .under {
-    top: 30px;
-    right: 100%;
-    bottom: 150px;
-    left: 0;
-  }
-
-
-  .over {
-    top: 60px;
-    right: 0;
-    bottom: 120px;
-    left: 100%;
   }
 }
 
@@ -96,7 +75,7 @@ function mounted() {
   justify-content: flex-end;
 
   svg {
-    background: rgba(255, 255, 255, 0.4);
+    background: #ffffff;
 
     .total-complete-circle {
       fill: #666666;
@@ -126,7 +105,7 @@ function mounted() {
 
       path {
         fill: none;
-        stroke: #ffffff;
+        stroke: #333333;
         stroke-width: 1;
       }
     }

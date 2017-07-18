@@ -17,7 +17,7 @@ function enterTimeline() {
   _.each(title, function(letter) {
     let tween = TweenLite.to(letter, durationEnter, { x: kerningShift });
     kerningTweens.push(tween);
-    kerningShift += 10;
+    kerningShift += 5;
   });
 
   tl

@@ -1,12 +1,12 @@
 <template>
   <section id="blog">
-    <div class="under"></div>
-    <div class="over"></div>
+    <bg></bg>
     <blog-title></blog-title>
   </section>
 </template>
 
 <script>
+import bg from 'components/layout/bgOverUnder';
 import blogTitle from 'components/Blog/blogTitle';
 
 import blogAnim from 'anim/Blog/Blog';
@@ -15,17 +15,18 @@ _.assign(methods, blogAnim);
 
 export default {
   name: 'blog',
+  methods: methods,
   components: {
+    bg: bg,
     blogTitle: blogTitle
   },
-  methods: methods,
   beforeRouteEnter: function(t, f, next) {
     next(function() {
       methods.beforeRouteEnter(t, f)
     });
   },
   beforeRouteLeave: function(t, f, next) {
-    this.beforeRouteLeave()
+    this.beforeRouteLeave(f)
       .then(function(then) {
         next();
       });
@@ -41,28 +42,6 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-
-  .under,
-  .over {
-    position: fixed;
-    background: #ff6e6e;
-    opacity: 0.4;
-  }
-
-  .under {
-    top: 0;
-    right: 180px;
-    bottom: 100%;
-    left: 150px;
-  }
-
-  .over {
-    top: 100%;
-    right: 150px;
-    bottom: 0;
-    left: 180px;
-    overflow-y: scroll;
-  }
 }
 
 #blog-title {

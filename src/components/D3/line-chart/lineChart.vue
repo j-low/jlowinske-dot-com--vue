@@ -1,7 +1,6 @@
 <template>
   <div id="line-chart">
-    <div class="under"></div>
-    <div class="over"></div>
+    <bg></bg>
     <line-chart-title></line-chart-title>
     <div class="content">
       <div id="line-chart-container"></div>
@@ -10,6 +9,7 @@
 </template>
 
 <script>
+import bg from 'components/layout/bgOverUnder';
 import lineChartTitle from 'components/D3/line-chart/lineChartTitle';
 
 import lineChart from './lineChartScript'
@@ -22,6 +22,7 @@ export default {
   methods: methods,
   mounted: mounted,
   components: {
+    bg: bg,
     lineChartTitle: lineChartTitle
   },
   beforeRouteEnter: function(t, f, next) {
@@ -30,7 +31,7 @@ export default {
     });
   },
   beforeRouteLeave: function(t, f, next) {
-    this.beforeRouteLeave()
+    this.beforeRouteLeave(f)
       .then(function(then) {
         next();
       });
@@ -50,13 +51,6 @@ function mounted() {
   bottom: 0;
   left: 0;
 
-  .under,
-  .over {
-    position: absolute;
-    background: #31ffe1;
-    opacity: 0.4;
-  }
-
   .content {
     background: none;
     position: absolute;
@@ -64,21 +58,6 @@ function mounted() {
     right: 0;
     bottom: 120px;
     left: 30px;
-  }
-
-  .under {
-    top: 30px;
-    right: 100%;
-    bottom: 150px;
-    left: 0;
-  }
-
-
-  .over {
-    top: 60px;
-    right: 0;
-    bottom: 120px;
-    left: 100%;
   }
 }
 

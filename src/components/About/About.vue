@@ -1,12 +1,12 @@
 <template>
   <section id="about">
-    <div class="under"></div>
-    <div class="over"></div>
+    <bg></bg>
     <about-title></about-title>
   </section>
 </template>
 
 <script>
+import bg from 'components/layout/bgOverUnder';
 import aboutTitle from 'components/About/aboutTitle';
 
 import aboutAnim from 'anim/About/About';
@@ -17,6 +17,7 @@ export default {
   name: 'about',
   methods: methods,
   components: {
+    bg: bg,
     aboutTitle: aboutTitle
   },
   beforeRouteEnter: function(t, f, next) {
@@ -25,7 +26,7 @@ export default {
     });
   },
   beforeRouteLeave: function(t, f, next) {
-    this.beforeRouteLeave()
+    this.beforeRouteLeave(f)
       .then(function(then) {
         next();
       });
@@ -41,28 +42,6 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-
-  .under,
-  .over {
-    position: fixed;
-    background: #ffff15;
-    opacity: 0.4;
-  }
-
-  .under {
-    top: 0;
-    right: 180px;
-    bottom: 100%;
-    left: 150px;
-  }
-
-  .over {
-    top: 100%;
-    right: 150px;
-    bottom: 0;
-    left: 180px;
-    overflow-y: scroll;
-  }
 }
 
 #about-title {
