@@ -38,7 +38,7 @@ export default {
 }
 
 function mounted() {
-  // donut.init();
+  donut.init();
 }
 </script>
 
@@ -61,10 +61,10 @@ function mounted() {
   .content {
     background: none;
     position: absolute;
-    top: 60px;
-    right: 0;
+    top: 90px;
+    right: 60px;
     bottom: 120px;
-    left: 30px;
+    left: 60px;
   }
 
   .under {
@@ -91,58 +91,61 @@ function mounted() {
   left: 60px;
 }
 
-// #donut-container {
-//   svg {
-//     background-color: #e6e6e6;
-//
-//     .total-complete-circle {
-//       fill: #666666;
-//     }
-//
-//     .total-complete-text {
-//       fill: white;
-//       font-family: 'Roboto Condensed', sans-serif;
-//       font-size: 36px;
-//     }
-//
-//     .slices-container {
-//
-//       .rule {
-//
-//         .has-known-issues {
-//           fill: red;
-//         }
-//
-//         &:hover {
-//           cursor: pointer;
-//         }
-//       }
-//     }
-//
-//     .lines-container {
-//
-//       path {
-//         fill: none;
-//         stroke: #ffffff;
-//         stroke-width: 1;
-//       }
-//     }
-//
-//     .text-container {
-//
-//       .rule-completion-percentage {
-//         fill: #666666;
-//         font-family: 'Roboto Condensed', sans-serif;
-//         font-weight: bold;
-//         font-size: 20px;
-//       }
-//
-//       .achievement-completion-percentage, .courses-complete, .known-issues {
-//         fill: #666666;
-//         font-size: 13px;
-//         font-family: sans-serif;
-//       }
-//     }
-//   }
-// }
+#donut-container {
+  display: flex;
+  justify-content: flex-end;
+
+  svg {
+    background: rgba(255, 255, 255, 0.4);
+
+    .total-complete-circle {
+      fill: #666666;
+    }
+
+    .total-complete-text {
+      fill: white;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 36px;
+    }
+
+    .slices-container {
+
+      .rule {
+
+        .has-known-issues {
+          fill: red;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .lines-container {
+
+      path {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 1;
+      }
+    }
+
+    .text-container {
+
+      .rule-completion-percentage {
+        fill: #666666;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .achievement-completion-percentage, .courses-complete, .known-issues {
+        fill: #666666;
+        font-size: 13px;
+        font-family: sans-serif;
+      }
+    }
+  }
+}
 </style>
