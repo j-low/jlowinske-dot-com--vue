@@ -45,7 +45,7 @@ export default {
   .under,
   .over {
     position: absolute;
-    background: #06c5ff;
+    background: #87ff6e;
     opacity: 0.4;
   }
 
@@ -55,7 +55,6 @@ export default {
     bottom: 150px;
     left: 0;
   }
-
 
   .over {
     top: 60px;

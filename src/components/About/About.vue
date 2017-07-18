@@ -45,7 +45,7 @@ export default {
   .under,
   .over {
     position: fixed;
-    background: #06c5ff;
+    background: #ffff15;
     opacity: 0.4;
   }
 

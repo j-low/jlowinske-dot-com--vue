@@ -18,7 +18,7 @@ function getLayoutOrientation(route) {
     case 'donut':
       orientation = 'h';
       break;
-    case 'lineChart':
+    case 'line-chart':
       orientation = 'h';
       break;
     case 'about':

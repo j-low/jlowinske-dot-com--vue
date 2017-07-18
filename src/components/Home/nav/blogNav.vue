@@ -27,7 +27,7 @@ export default {
   left: 0;
 
   rect {
-    fill: #f145ff;
+    fill: #ff6e6e;
   }
 }
 </style>
