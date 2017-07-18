@@ -56,7 +56,6 @@ export default {
     left: 0;
   }
 
-
   .over {
     top: 60px;
     right: 0;
