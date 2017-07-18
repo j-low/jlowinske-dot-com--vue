@@ -89,13 +89,14 @@ function init() {
 
 
   var chartData = generateData();
-  var primaryPalette = ['#65b045', '#1e465f', '#f2644c', '#f4c662', '#693167', '#516fa4', '#f27787'];
+  var primaryPalette = ['#ff6e6e', '#3effff', '#ffa02e', '#06c5ff', '#ffff15', '#87ff6e'];
 
   var width = 480;
-  var height = 380;
-  var radius = Math.min(width, height) / 4;
+  var height = 300;
+  var radius = width / 5;
 
-  var svg = d3.select('#donut-container').append('svg')
+  var svg = d3.select('.donut-container').append('svg')
+      .attr('class', '.donut-svg')
       .attr('width', width)
       .attr('height', height)
       .append('g')
@@ -158,7 +159,7 @@ function init() {
       .style('fill', function(d, i) {
         return primaryPalette[i];
       })
-      .attr('class', function(d, i) { return 'rule rule-' + i; })
+      .attr('class', function(d, i) { return 'module module-' + i; })
       .attr('d', arc)
       .on('mouseenter', mouseenter)
       .on('mouseout', mouseleave)
@@ -225,29 +226,23 @@ function init() {
 
       // completion percentage
       textContainer.append('text')
-      .attr('class', 'rule-completion-percentage')
+      .attr('class', 'section-completion-percentage')
       .attr('dx', 125)
       .attr('dy', -110)
-      .text(event.data.ruleCompPercent + '% Complete');
+      .text(event.data.sectionCompPercentage + '% complete');
 
       textContainer.append('text')
-      .attr('class', 'achievement-completion-percentage')
+      .attr('class', 'modules-complete')
       .attr('dx', 127)
       .attr('dy', -82)
-      .text(event.data.achievementCompPercent + '% of Achievement');
+      .text(event.data.complete + ' out of ' + event.data.total + ' modules');
 
       textContainer.append('text')
-      .attr('class', 'courses-complete')
+      .attr('class', 'outstanding-issues')
       .attr('dx', 127)
       .attr('dy', -67)
-      .text(event.data.complete + ' out of ' + event.data.total + ' Courses');
-
-      textContainer.append('text')
-      .attr('class', 'known-issues')
-      .attr('dx', 127)
-      .attr('dy', -52)
       .text(function() {
-        return event.data.knownIssues.length === 1 ? event.data.knownIssues.length + ' Known Issue' : event.data.knownIssues.length + ' Known Issues';
+        return event.data.knownIssues.length === 1 ? event.data.knownIssues.length + ' outstanding issue' : event.data.knownIssues.length + ' outstanding issues';
       });
     }, metaState.defaultDuration + 1);
   }
@@ -276,7 +271,7 @@ function init() {
       var total = Math.ceil(Math.random() * 10);
       var complete = Math.ceil(Math.random() * total);
       var incomplete = total - complete;
-      var ruleCompPercent = Math.floor((complete / total) * 100);
+      var sectionCompPercentage = Math.floor((complete / total) * 100);
       var achievementCompPercent = Math.floor((complete / total) * 99);
       var knownIssues = i % 2 === 0 ? ['Course expiring soon'] : [];
       var datum = Object.assign({}, {
@@ -284,7 +279,7 @@ function init() {
         total: total,
         complete: complete,
         incomplete: incomplete,
-        ruleCompPercent: ruleCompPercent,
+        sectionCompPercentage: sectionCompPercentage,
         achievementCompPercent: achievementCompPercent,
         knownIssues: knownIssues
       });
@@ -308,4 +303,6 @@ function init() {
     currentState.ambientRotation(deltaTime);
     requestAnimationFrame(ambientRotation);
   }
+
+  return;
 }
