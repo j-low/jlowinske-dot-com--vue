@@ -1,10 +1,15 @@
 import * as d3 from 'd3';
 
 export default {
-  init: init
+  init: init,
+  teardown: teardown
 }
 
+var rafKillswitch = false;
+
 function init() {
+  rafKillswitch = false;
+
   /* START: STATE MANAGER */
   var State = function(name) {
     this.name = name;
@@ -23,6 +28,7 @@ function init() {
 
   // unselected
   var unselectedState = new State('unselected');
+
   unselectedState.onClick = function(slice, event, i) {
     metaState.previousSlice = metaState.currentSlice;
     metaState.currentSlice = i;
@@ -196,7 +202,6 @@ function init() {
     var halfWidth = (event.startAngle - event.endAngle) / 2;
     var rotation = toDegrees((Math.PI * 2) - diff - halfWidth);
 
-
     slicesContainer.selectAll('path')
         .transition()
         .duration(metaState.defaultDuration)
@@ -300,9 +305,15 @@ function init() {
   }
 
   function ambientRotation(deltaTime) {
+    if (rafKillswitch) return;
+    
     currentState.ambientRotation(deltaTime);
     requestAnimationFrame(ambientRotation);
   }
 
   return;
+}
+
+function teardown() {
+  rafKillswitch = true;
 }

@@ -78,7 +78,7 @@ export default {
 }
 
 .under {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 // route fill classes
