@@ -68,6 +68,7 @@ function mounted() {
 
 function beforeDestroy() {
   window.removeEventListener('resize', handleResize);
+  donut.teardown();
 }
 
 function handleResize() {
