@@ -19,8 +19,8 @@ function init() {
   };
 
   var margin = {top: 20, right: 50, bottom: 30, left: 50}
-  var width = 600 - margin.left - margin.right;
-  var height = 400 - margin.top - margin.bottom;
+  var width = 500 - margin.left - margin.right;
+  var height = 300 - margin.top - margin.bottom;
 
   var x = d3.scale.linear()
       .domain([0, 30])
@@ -43,7 +43,7 @@ function init() {
       .x(function(d) { return x(d.date); })
       .y(function(d) { return y(d.temp); });
 
-  var svg = d3.select('#line-chart-container').append('svg')
+  var svg = d3.select('.line-chart-container').append('svg')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
     .append('g')
@@ -94,7 +94,7 @@ function init() {
   // append textbox
   svg.append('g')
   		.attr('class', 'textbox')
-      .attr('transform', 'translate(400, 190)')
+      .attr('transform', 'translate(' + (width - 50) + ',' + (height - 25) + ')')
     .append('rect')
       .attr('rx', 5)
       .attr('width', 92)
