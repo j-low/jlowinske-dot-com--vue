@@ -16,7 +16,6 @@ function enterTimeline() {
   const enterWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
-
   if (enterWidth >= 1030) {
     let fadeInContainer = TweenLite.fromTo(textContainer, durationEnter, { opacity: 0 }, { opacity: 1 });
     let blurbsTl = new TimelineLite();

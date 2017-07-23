@@ -16,8 +16,7 @@ function enterTimeline() {
   const enterWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
-
-  if (enterWidth >= 1030) {
+  if (enterWidth >= 1060) {
     let fadeInContainer = TweenLite.fromTo(textContainer, durationEnter, { opacity: 0 }, { opacity: 1 });
     let blurbsTl = new TimelineLite();
 
@@ -40,7 +39,7 @@ function enterOnResize() {
   var tl = new TimelineLite();
 
 
-  if (enterWidth >= 1030) {
+  if (enterWidth >= 1060) {
     let fadeInContainer = TweenLite.fromTo(textContainer, durationEnter, { opacity: 0 }, { opacity: 1 });
     let blurbs = [];
 
@@ -60,7 +59,7 @@ function leaveTimeline() {
   const leaveWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
-  if (leaveWidth > 1030) {
+  if (leaveWidth > 1060) {
     var tweens = getLeaveTweens();
     tl.add([tweens.fadeOutContainer, tweens.blurbs]);
   }
@@ -72,7 +71,7 @@ function leaveOnResize() {
   const leaveWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
-  if (leaveWidth < 1030) {
+  if (leaveWidth < 1060) {
     var tweens = getLeaveTweens();
     tl.add([tweens.fadeOutContainer, tweens.blurbs]);
   }

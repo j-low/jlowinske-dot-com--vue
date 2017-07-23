@@ -27,6 +27,7 @@ import donutTitle from 'components/D3/donut/donutTitle';
 
 import winWidth from 'util/getWindowWidth';
 import donut from './donutScript';
+
 import donutAnim from 'anim/D3/donut/donut';
 import donutTextAnim from 'anim/D3/donut/donutText';
 

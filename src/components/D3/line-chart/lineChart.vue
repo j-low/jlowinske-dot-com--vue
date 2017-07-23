@@ -27,8 +27,9 @@ import lineChartTitle from 'components/D3/line-chart/lineChartTitle';
 
 import winWidth from 'util/getWindowWidth';
 import lineChart from './lineChartScript'
+
 import lineChartAnim from 'anim/D3/line-chart/lineChart';
-import lineChartTextAnim from 'anim/D3/line-chart/lineChart';
+import lineChartTextAnim from 'anim/D3/line-chart/lineChartText';
 
 var lastWidth;
 var methods = {};
@@ -73,9 +74,9 @@ function beforeDestroy() {
 function handleResize() {
   var width = winWidth.getWindowWidth();
 
-  if (width < 1030 && lastWidth >= 1030) {
+  if (width < 1060 && lastWidth >= 1060) {
     lineChartTextAnim.leaveOnResize();
-  } else if (width >= 1030 && lastWidth < 1030) {
+  } else if (width >= 1060 && lastWidth < 1060) {
     lineChartTextAnim.enterOnResize();
   }
 
@@ -142,6 +143,9 @@ function handleResize() {
 .line-chart-container {
   @import '~scss/classes';
 
+  height: 300px;
+  width: 500px;
+
   svg {
     font: 10px sans-serif;
   }
@@ -162,7 +166,7 @@ function handleResize() {
 
   .line {
     fill: none;
-    stroke: #6699cc;
+    stroke: #06c5ff;
     stroke-width: 1.5px;
   }
 
@@ -174,7 +178,6 @@ function handleResize() {
   .info {
     font-weight: bold;
     font-style: italic;
-    font-size: 12px;
     font-family: Times, "Times New Roman", Georgia, serif;
     fill: #333333;
   }
@@ -187,6 +190,10 @@ function handleResize() {
   .textbox {
     opacity: 0;
 
+    .info {
+      font-size: 12px;
+    }
+
     text {
       fill: #333333;
     }
@@ -198,6 +205,7 @@ function handleResize() {
 
     rect {
       stroke: #333333;
+      stroke-width: 1.5px;
       fill: #ffffff;
     }
   }
