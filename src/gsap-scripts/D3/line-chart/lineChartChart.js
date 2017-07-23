@@ -12,16 +12,19 @@ function enterTimeline() {
   const content = $('.content');
   const container = $('.line-chart-container');
   const chart = $('.line-chart-container svg');
+  const line = $('.line');
   var mainTl = new TimelineLite();
   var textTl = text.enterTimeline();
 
   var contentPadding = TweenLite.fromTo(content, 0.3, { paddingBottom: 10 }, { paddingBottom: 0 });
   var containerFade = TweenLite.fromTo(container, 0.3, { opacity: 0 }, { opacity: 1 });
   var chartFade = TweenLite.fromTo(chart, durationEnter, { opacity: 0 }, { opacity: 1 });
+  var drawLine = TweenLite.fromTo(line, 1.25, { drawSVG: '0%' }, { drawSVG: '100%' });
 
   mainTl
     .add([contentPadding, containerFade, textTl])
-    .add([chartFade]);
+    .add([chartFade])
+    .add(drawLine);
 
   return mainTl;
 }
