@@ -55,7 +55,7 @@ function init() {
       .attr('transform', 'translate(0,' + (height - 20) + ')')
       .call(xAxis)
     .append('text')
-  		.attr('x', 250)
+  		.attr('x', 200)
       .attr('y', 20)
       .attr('dy', '.71em')
       .style('text-anchor', 'middle')
@@ -66,7 +66,7 @@ function init() {
       .attr('class', 'y axis')
       .call(yAxis)
     .append('text')
-      .attr('transform', 'rotate(-90) translate(-200, -35)')
+      .attr('transform', 'rotate(-90) translate(-150, -35)')
       .attr('y', 6)
       .style('text-anchor', 'start')
       .text('High Temp (ºF)');
