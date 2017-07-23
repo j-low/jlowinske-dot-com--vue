@@ -9,18 +9,18 @@ function init() {
   var selectedIndex = null;
   var radius = {
   	default: 4,
-    hovered: 6,
-    selected: 8
+    hovered: 7,
+    selected: 10
   };
 
   var color = {
-  	default: '#003366',
+  	default: '#333333',
     selected: '#ffffff'
   };
 
   var margin = {top: 20, right: 50, bottom: 30, left: 50}
-  var width = 600 - margin.left - margin.right;
-  var height = 400 - margin.top - margin.bottom;
+  var width = 500 - margin.left - margin.right;
+  var height = 300 - margin.top - margin.bottom;
 
   var x = d3.scale.linear()
       .domain([0, 30])
@@ -43,7 +43,7 @@ function init() {
       .x(function(d) { return x(d.date); })
       .y(function(d) { return y(d.temp); });
 
-  var svg = d3.select('#line-chart-container').append('svg')
+  var svg = d3.select('.line-chart-container').append('svg')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
     .append('g')
@@ -94,7 +94,7 @@ function init() {
   // append textbox
   svg.append('g')
   		.attr('class', 'textbox')
-      .attr('transform', 'translate(400, 190)')
+      .attr('transform', 'translate(308, 130)')
     .append('rect')
       .attr('rx', 5)
       .attr('width', 92)
@@ -146,8 +146,9 @@ function init() {
         .attr('transform', 'translate('+ circle.attributes.cx.value + ',' + circle.attributes.cy.value +')')
   		.append('text')
       	.attr('class', 'info')
-        .attr('dx', -1.75)
-        .attr('dy', 4)
+        .attr('dx', -2.5)
+        .attr('dy', 5)
+        .style('font-size', 16)
       	.text('i');
 
   	selectedIndex = index;
@@ -169,7 +170,7 @@ function init() {
   }
 
   function showTextbox(data, index) {
-  	var textbox = 	d3.select('.textbox');
+  	var textbox = d3.select('.textbox');
 
   	textbox.selectAll('text')
     		.remove();
@@ -177,14 +178,15 @@ function init() {
   	textbox
         .transition()
         .style('opacity', 1)
-        .attr('transform', 'translate(400, 200)');
+        .attr('transform', 'translate(308, 140)');
 
     textbox
     	.append('circle')
       .attr('class', 'info-circle')
       .attr('r', 7)
       .attr('cx', 12.5)
-      .attr('cy', 12);
+      .attr('cy', 12)
+      .style('fill', '#ffffff');
 
     textbox
       .append('text')
@@ -225,7 +227,7 @@ function init() {
     textbox
         .transition()
         .style('opacity', 0)
-        .attr('transform', 'translate(400, 190)');
+        .attr('transform', 'translate(308, 130)');
 
     textbox.selectAll('text')
     		.remove();

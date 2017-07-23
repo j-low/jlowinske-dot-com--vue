@@ -11,12 +11,12 @@ const durationEnter = 0.5;
 const durationLeave = 0.3;
 
 function enterTimeline() {
-  const textContainer = $('.donut-text');
-  const infoBlurbs = $('.donut-text li')
+  const textContainer = $('.line-chart-text');
+  const infoBlurbs = $('.line-chart-text li')
   const enterWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
-  if (enterWidth >= 1030) {
+  if (enterWidth >= 1060) {
     let fadeInContainer = TweenLite.fromTo(textContainer, durationEnter, { opacity: 0 }, { opacity: 1 });
     let blurbsTl = new TimelineLite();
 
@@ -33,13 +33,13 @@ function enterTimeline() {
 }
 
 function enterOnResize() {
-  const textContainer = $('.donut-text');
-  const infoBlurbs = $('.donut-text li')
+  const textContainer = $('.line-chart-text');
+  const infoBlurbs = $('.line-chart-text li')
   const enterWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
 
-  if (enterWidth >= 1030) {
+  if (enterWidth >= 1060) {
     let fadeInContainer = TweenLite.fromTo(textContainer, durationEnter, { opacity: 0 }, { opacity: 1 });
     let blurbs = [];
 
@@ -59,7 +59,7 @@ function leaveTimeline() {
   const leaveWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
-  if (leaveWidth > 1030) {
+  if (leaveWidth > 1060) {
     var tweens = getLeaveTweens();
     tl.add([tweens.fadeOutContainer, tweens.blurbs]);
   }
@@ -71,7 +71,7 @@ function leaveOnResize() {
   const leaveWidth = winWidth.getWindowWidth();
   var tl = new TimelineLite();
 
-  if (leaveWidth < 1030) {
+  if (leaveWidth < 1060) {
     var tweens = getLeaveTweens();
     tl.add([tweens.fadeOutContainer, tweens.blurbs]);
   }
@@ -81,8 +81,8 @@ function leaveOnResize() {
 
 function getLeaveTweens() {
   var tweens = {};
-  const textContainer = $('.donut-text');
-  const infoBlurbs = $('.donut-text li');
+  const textContainer = $('.line-chart-text');
+  const infoBlurbs = $('.line-chart-text li');
   let fadeOutContainer = TweenLite.fromTo(textContainer, durationLeave, { opacity: 1 }, { opacity: 0 });
   let blurbs = [];
 
