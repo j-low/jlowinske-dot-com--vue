@@ -3,7 +3,7 @@
     <nav-box
       box-class="nav-about"
       box-title="about"
-      box-route="/about">
+      box-route="/">
     </nav-box>
     <about-nav-label></about-nav-label>
   </div>

@@ -3,7 +3,7 @@
     <nav-box
       box-class="nav-contact"
       box-title="contact"
-      box-route="/contact">
+      box-route="/">
     </nav-box>
     <contact-nav-label></contact-nav-label>
   </div>

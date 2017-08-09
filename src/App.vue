@@ -5,12 +5,6 @@
       <router-view></router-view>
       <!-- <jFooter/> -->
     </div>
-    <div id="bigger-screen">
-      <span>What</span>
-      <span>is this?</span>
-      <span>A viewport</span>
-      <span>for ants?!</span>
-    </div>
   </div>
 </template>
 
@@ -53,28 +47,6 @@ export default {
 #app-container {
   background: #ffffff;
 }
-
-#bigger-screen {
-  display: none;
-  padding: 0 30px;
-  background: #333333;
-  font-size: 72px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-// @media(max-width: 660px) {
-//   #app-container {
-//     display: none;
-//   }
-//
-//   #bigger-screen {
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: column;
-//   }
-// }
 
 .nav-container {
   height: 80px;

@@ -3,6 +3,7 @@
     <bg></bg>
     <donut-title></donut-title>
     <div class="content">
+      <div class="donut-container"></div>
       <div class="donut-text">
         <ul>
           <li>
@@ -16,7 +17,6 @@
           </li>
         </ul>
       </div>
-      <div class="donut-container"></div>
     </div>
   </div>
 </template>
@@ -25,12 +25,9 @@
 import bg from 'components/layout/bgOverUnder';
 import donutTitle from 'components/D3/donut/donutTitle';
 
-import winWidth from 'util/getWindowWidth';
 import donut from './donutScript';
 import donutAnim from 'anim/D3/donut/donut';
-import donutTextAnim from 'anim/D3/donut/donutText';
 
-var lastWidth;
 var methods = {};
 _.assign(methods, donutAnim);
 
@@ -58,29 +55,10 @@ export default {
 
 function mounted() {
   donut.init();
-
-  this.$nextTick(function() {
-    window.addEventListener('resize', handleResize);
-  });
-
-  lastWidth = winWidth.getWindowWidth();
 }
 
 function beforeDestroy() {
-  window.removeEventListener('resize', handleResize);
   donut.teardown();
-}
-
-function handleResize() {
-  var width = winWidth.getWindowWidth();
-
-  if (width < 1030 && lastWidth >= 1030) {
-    donutTextAnim.leaveOnResize();
-  } else if (width >= 1030 && lastWidth < 1030) {
-    donutTextAnim.enterOnResize();
-  }
-
-  lastWidth = width;
 }
 </script>
 
@@ -91,45 +69,50 @@ function handleResize() {
 #donut {
   position: absolute;
   top: 120px;
-  right: 0;
+  right: 50px;
   bottom: 0;
-  left: 0;
+  left: 50px;
 
   .content {
     background: none;
     position: absolute;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 
-    top: 90px;
+    top: 0;
     right: 30px;
-    bottom: 150px;
-    left: 60px;
+    bottom: 0;
+    left: 30px;
+
+    overflow-y: scroll;
   }
 }
 
 #donut-title {
   position: absolute;
-  height: 95px;
+  height: 75px;
   width: 382px;
-  top: 85px;
-  left: 60px;
+  top: -100px;
+  right: -50px;
 }
 
 .donut-text,
 .donut-container {
+  display: block;
   background: #ffffff;
   border: 3px solid #333333;
 }
 
+.donut-container {
+  margin: 30px;
+}
+
 .donut-text {
   height: 260px;
-  min-width: 400px;
-  width: 400px;
-  margin-right: 30px;
+  margin: 0 30px 30px 30px;
   padding: 20px 10px;
-  opacity: 0;
 
   ul {
     margin-top: 0;
@@ -143,13 +126,116 @@ function handleResize() {
   }
 }
 
+/* @browser width */
+@media screen and (min-width: 1024px) {
+
+  #donut {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .content {
+      background: none;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      top: 90px;
+      right: 30px;
+      bottom: 150px;
+      left: 60px;
+    }
+  }
+
+  #donut-title {
+    height: 95px;
+    top: 85px;
+    left: 60px;
+  }
+
+  .donut-text {
+    width: 400px;
+    margin: 0 15px;
+  }
+
+  .donut-container {
+    margin: 0 15px;
+  }
+}
+
+/* added to css scope for demo only*/
+#j-header {
+  height: 115px;
+  width: 100%;
+  border-bottom: 5px solid #333333
+}
+
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+
+  svg {
+    height: 75px;
+  }
+}
+
+.social-link-anchor {
+  display: none;
+}
+
+/* @browser width */
+@media screen and (min-width: 1024px) {
+  #j-header {
+    height: 0;
+    width: 0;
+  }
+
+  .logo {
+
+    svg {
+      height: 100px;
+    }
+  }
+
+  .social-link-anchor {
+    display: block;
+    position: fixed;
+    top: 20px;
+
+    &.linkedin {
+      right: 445px;
+    }
+
+    &.github {
+      right: 350px;
+    }
+
+    &.instagram {
+      right: 255px;
+    }
+
+    &.twitter {
+      right: 160px;
+    }
+
+    &.envelope-o {
+      right: 65px;
+    }
+  }
+}
+
 .donut-container {
   height: 300px;
   width: 480px;
 
   svg {
     @extend .noselect;
-    opacity: 0;
+    opacity: 1;
 
     .total-complete-circle {
       fill: #222222;

@@ -81,9 +81,14 @@ export default {
   position: fixed;
   top: 20px;
   left: 10px;
+  
+  svg {
+    height: 100px;
+  }
 }
 
 .social-link-anchor {
+  display: block;
   position: fixed;
   top: 20px;
 
@@ -107,4 +112,5 @@ export default {
     right: 65px;
   }
 }
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/d3/line-chart" class="nav-box-line-chart">
+  <router-link to="/d3" class="nav-box-line-chart">
     <svg
       id="line-chart-nav-box"
       viewBox="-4 -2 70 70"

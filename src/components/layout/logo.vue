@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss">
 svg#logo {
-  height: 100px;
+  // height: 100px;
 }
 
 .logo-cls-1 { fill: #06c5ff; }
