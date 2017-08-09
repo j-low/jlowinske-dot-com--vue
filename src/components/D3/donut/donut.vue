@@ -107,7 +107,7 @@ function handleResize() {
     right: 30px;
     bottom: 150px;
     left: 60px;
-  }
+  }  
 }
 
 #donut-title {

@@ -21,7 +21,7 @@ function init() {
 
 
   var metaState = new State('metaState');
-  metaState.previousSlice = null;
+  // metaState.previousSlice = null;
   metaState.currentSlice = null;
   metaState.degrees = 0;
   metaState.defaultDuration = 500;
@@ -30,7 +30,7 @@ function init() {
   var unselectedState = new State('unselected');
 
   unselectedState.onClick = function(slice, event, i) {
-    metaState.previousSlice = metaState.currentSlice;
+    // metaState.previousSlice = metaState.currentSlice;
     metaState.currentSlice = i;
     currentState = transitionState;
 
@@ -306,7 +306,7 @@ function init() {
 
   function ambientRotation(deltaTime) {
     if (rafKillswitch) return;
-    
+
     currentState.ambientRotation(deltaTime);
     requestAnimationFrame(ambientRotation);
   }

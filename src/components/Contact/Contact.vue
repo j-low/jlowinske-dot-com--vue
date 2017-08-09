@@ -2,12 +2,16 @@
   <section id="contact">
     <bg></bg>
     <contact-title></contact-title>
+    <div class="content">
+      <contact-content></contact-content>
+    </div>
   </section>
 </template>
 
 <script>
 import bg from 'components/layout/bgOverUnder';
 import contactTitle from 'components/Contact/contactTitle';
+import contactContent from 'components/Contact/contactContent';
 
 import contactAnim from 'anim/Contact/Contact';
 var methods = {};
@@ -18,7 +22,8 @@ export default {
   methods: methods,
   components: {
     bg: bg,
-    contactTitle: contactTitle
+    contactTitle: contactTitle,
+    contactContent: contactContent
   },
   beforeRouteEnter: function(t, f, next) {
     next(function() {
@@ -42,6 +47,18 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+
+  .content {
+    position: absolute;
+    top: 175px;
+    left: 60px;
+    bottom: 150px;
+    right: 0;
+    background: #ffffff;
+    border-top: 3px solid #333333;
+    border-left: 3px solid #333333;
+    border-bottom: 3px solid #333333;
+  }
 }
 
 #contact-title {

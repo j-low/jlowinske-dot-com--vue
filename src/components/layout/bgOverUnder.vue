@@ -77,8 +77,12 @@ export default {
   }
 }
 
+.over {
+  // opacity: 0.9;
+}
+
 .under {
-  opacity: 0.7;
+  // opacity: 0.7;
 }
 
 // route fill classes
@@ -86,13 +90,6 @@ export default {
   .over,
   .under {
     background: #ff6e6e;
-  }
-}
-
-.d3 {
-  .over,
-  .under {
-    background: #3effff;
   }
 }
 
@@ -123,5 +120,55 @@ export default {
     background: #87ff6e;
   }
 }
+
+// .blog {
+//   .over {
+//     background: rgba(255, 110, 110, 0.5);
+//   }
+//
+//   .under {
+//     background: rgba(255, 110, 110, 0.5);
+//   }
+// }
+//
+// .donut {
+//   .over {
+//     background: rgba(255, 160, 46, 0.5);
+//   }
+//
+//   .under {
+//     background: rgba(255, 160, 46, 0.5);
+//   }
+// }
+//
+// .line-chart {
+//   .over {
+//     background: rgba(49, 255, 255, 0.5);
+//   }
+//
+//   .under {
+//     background: rgba(49, 255, 255, 0.5);
+//   }
+// }
+//
+// .about {
+//   .over {
+//     background: rgba(255, 255, 21, 0.5);
+//   }
+//
+//   .under {
+//     background: rgba(255, 255, 21, 0.5);
+//   }
+// }
+//
+// .contact {
+//   .over {
+//     background: rgba(135, 255, 110, 0.5);
+//   }
+//
+//   .under {
+//     background: rgba(135, 255, 110, 0.5);
+//   }
+// }
 
 </style>
