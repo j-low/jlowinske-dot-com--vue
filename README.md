@@ -1,5 +1,5 @@
 # Responsiveness Demo
-  I did some basic reconfiguring to give a sense of my basic approach to responsive, mobile-first design
+  I did some basic reconfiguring to give a sense of my basic approach to responsive, mobile-first design.  [The live version can be viewed here.](http://jlowinske.com/#/d3/donut)
 ## Notes
 * I implemented two basic layouts: mobile and browser; under normal circumstances and depending upon the requirements for content display I would likely use more than two basic layouts
 * I did this in a mobile-first fashion by defining the basic CSS classes to handle the mobile case and using a media query wrapper set at `min-width: 1024px` for handling browser layouts (i.e. mobile is the default case and desktop browsing is the special case, not the other way around).
